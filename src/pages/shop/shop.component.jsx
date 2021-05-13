@@ -17,7 +17,6 @@ class Shop extends Component {
             <div className='shop'>
                 {
                     collections.map(({id, ...collection}) => {
-                        console.log({...collection})
                         return(
                             <CollectionPreview key={id} {...collection} />
                         )
