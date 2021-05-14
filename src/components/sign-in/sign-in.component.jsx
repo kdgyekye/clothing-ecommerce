@@ -5,7 +5,6 @@ import FormInput from '../form-input/form-input.component';
 import CustomButton from "../custom-button/custom-button.component";
 
 import './sign-in.style.scss';
-import {Link} from "react-router-dom";
 
 class SignIn extends React.Component {
     constructor(props) {
@@ -57,7 +56,7 @@ class SignIn extends React.Component {
                         <CustomButton type='submit'> Sign in </CustomButton>
                         <CustomButton onClick={signInWithGoogle} type='button' isGoogleSignin> Sign in With Google</CustomButton>
                     </div>
-                    <div onClick={e => this.props.toggleComponent(false)}><p>Sign Up</p></div>
+                    <div onClick={e => this.props.toggleComponent(false)} style={{cursor: 'pointer'}}><p>Sign Up</p></div>
                 </form>
             </div>
         );

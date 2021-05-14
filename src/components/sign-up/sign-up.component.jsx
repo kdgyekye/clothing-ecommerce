@@ -3,8 +3,10 @@ import React from 'react';
 import FormInput from '../form-input/form-input.component';
 import CustomButton from "../custom-button/custom-button.component";
 
+//firebase imports
+import {auth, createUserProfileDocument} from "../../utils/firebase.utils";
+
 import './sign-up.style.scss';
-import {Link} from "react-router-dom";
 
 class SignIn extends React.Component {
     constructor(props) {
@@ -13,15 +15,34 @@ class SignIn extends React.Component {
         this.state = {
             email: '',
             password: '',
-            username: ''
+            confirmPassword: '',
+            displayName: ''
         };
     }
 
-    handleSubmit = event => {
+    handleSubmit = async event => {
         event.preventDefault();
 
-        this.setState({ email: '', password: '', username: '' });
-    };
+        const {email, displayName, password, confirmPassword} = this.state
+
+        if (password !== confirmPassword) {
+            alert('Passwords do not match')
+            return
+        }
+        try{
+            const {user} = await auth.createUserWithEmailAndPassword(email,password)
+            await createUserProfileDocument(user, {displayName})
+
+            this.setState({
+                email: '',
+                displayName: '',
+                password: '',
+                confirmPassword: ''
+            })
+        }catch (e) {
+            console.error('Sign Up Error: ',e)
+        }
+    }
 
     handleChange = event => {
         const { value, name } = event.target;
@@ -37,10 +58,10 @@ class SignIn extends React.Component {
 
                 <form onSubmit={this.handleSubmit}>
                     <FormInput
-                        name='username'
+                        name='displayName'
                         type='text'
                         handleChange={this.handleChange}
-                        value={this.state.username}
+                        value={this.state.displayName}
                         label='Username'
                         required
                     />
@@ -60,9 +81,17 @@ class SignIn extends React.Component {
                         label='Password'
                         required
                     />
+                    <FormInput
+                        name='confirmPassword'
+                        type='password'
+                        value={this.state.confirmPassword}
+                        handleChange={this.handleChange}
+                        label='Confirm Password'
+                        required
+                    />
                     <CustomButton type='submit'> Sign Up </CustomButton>
                     <br/>
-                    <Link onClick={e => this.props.toggleComponent(true)}><p>Sign In</p></Link>
+                    <div onClick={e => this.props.toggleComponent(true)} style={{cursor: 'pointer'}}><p>Sign In</p></div>
                 </form>
             </div>
         );

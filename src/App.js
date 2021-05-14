@@ -3,7 +3,7 @@ import './App.css';
 
 //Library Imports
 import {Route} from "react-router-dom";
-import {auth} from "./utils/firebase.utils";
+import {auth, createUserProfileDocument} from "./utils/firebase.utils";
 //component imports
 import Homepage from "./pages/homepage/homepage.component";
 //import Hats from "./pages/hats/hats.component";
@@ -24,9 +24,27 @@ class App extends React.Component {
     unsubscribeFromAuth = null
 
     componentDidMount() {
-        auth.onAuthStateChanged(user => {
-            this.setState({currentUser: user})
-            console.log(user)
+        this.unsubscribeFromAuth = auth.onAuthStateChanged(async user => {
+            if (user) {
+                const userRef = await createUserProfileDocument(user)
+
+                userRef.onSnapshot(snapshot => {
+                    this.setState(
+                        {
+                            currentUser: {
+                                id: snapshot.id,
+                                    ...snapshot.data()
+                            }
+                        },
+                        () => console.log(this.state)
+                    )
+                })
+            }
+            else {
+                this.setState({
+                    currentUser: user
+                })
+            }
         })
     }
 
