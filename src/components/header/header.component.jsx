@@ -7,7 +7,6 @@ import {auth} from "../../utils/firebase.utils";
 
 //redux imports
 import {connect} from "react-redux";
-import {setCurrentUser} from "../../store/actions/user.actions";
 
 const Header = (props) => (
     <div className='header'>

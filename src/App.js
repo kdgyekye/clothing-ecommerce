@@ -2,7 +2,7 @@ import React from 'react'
 import './App.css';
 
 //Library Imports
-import {Route} from "react-router-dom";
+import {Route, Redirect} from "react-router-dom";
 import {auth, createUserProfileDocument} from "./utils/firebase.utils";
 //component imports
 import Homepage from "./pages/homepage/homepage.component";
@@ -60,7 +60,13 @@ class App extends React.Component {
                 />
                 <Route exact={true}
                        path='/signin'
-                       component={SignInAndOut}
+                       render={() =>
+                           this.props.currentUser?
+                               (<Redirect to='/' />)
+                           : (
+                           <SignInAndOut />
+                       )
+                       }
                 />
             </div>
         )
@@ -68,6 +74,9 @@ class App extends React.Component {
 
 
 }
+const mapStateToProps = ({user}) => ({
+    currentUser: user.currentUser
+})
 const mapDispatchToProps = dispatch => (
     {
         setCurrentUser: user => {
@@ -75,4 +84,4 @@ const mapDispatchToProps = dispatch => (
         }
     }
 )
-export default connect(null,mapDispatchToProps)(App);
+export default connect(mapStateToProps,mapDispatchToProps)(App);
