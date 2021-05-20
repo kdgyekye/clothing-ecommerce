@@ -5,6 +5,10 @@ import {auth,createUserProfileDocument} from "../../utils/firebase.utils";
 import FormInput from '../form-input/form-input.component';
 import CustomButton from "../custom-button/custom-button.component";
 
+//redux import
+import {setCurrentUser} from "../../store/actions/user.actions";
+import {connect} from "react-redux";
+
 import './sign-in.style.scss';
 
 class SignIn extends React.Component {
