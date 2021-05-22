@@ -4,9 +4,13 @@ import './header.styles.scss'
 import {ReactComponent as Logo} from '../../assets/crown.svg'
 import {Link} from "react-router-dom";
 import {auth} from "../../utils/firebase.utils";
+import CartIcon from "../cart-icon/cart-icon.component";
+import CartDropdown from "../cart-dropdown/cart-dropdown.component";
 
 //redux imports
 import {connect} from "react-redux";
+import {toggleCart} from "../../store/actions/cart-action";
+
 
 const Header = (props) => (
     <div className='header'>
@@ -22,14 +26,22 @@ const Header = (props) => (
                 :
                     <Link className='option' to='/signin'>SIGN IN</Link>
             }
+            <CartIcon />
 
         </div>
+        {
+            props.cartToggle?
+                null
+                :
+                <CartDropdown/>
+        }
     </div>
 )
 
 const mapStateToProps = state => {
     return {
-        currentUser: state.user.currentUser
+        currentUser: state.userReducer.currentUser,
+        cartToggle: state.cartReducer.cartHidden
     }
 }
 
