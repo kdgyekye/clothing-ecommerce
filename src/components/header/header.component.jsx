@@ -9,8 +9,6 @@ import CartDropdown from "../cart-dropdown/cart-dropdown.component";
 
 //redux imports
 import {connect} from "react-redux";
-import {toggleCart} from "../../store/actions/cart-action";
-
 
 const Header = (props) => (
     <div className='header'>

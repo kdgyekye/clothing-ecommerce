@@ -25,7 +25,7 @@ class App extends React.Component {
             if (user) {
                 const userRef = await createUserProfileDocument(user)
 
-                userRef.onSnapshot(snapshot => {
+                userRef?.onSnapshot(snapshot => {
                     this.props.setCurrentUser(
                     {
                             id: snapshot.id,
@@ -77,8 +77,7 @@ class App extends React.Component {
 const mapStateToProps = ({userReducer}) => ({
     currentUser: userReducer.currentUser
 })
-const mapDispatchToProps = dispatch => (
-    {
+const mapDispatchToProps = dispatch => ({
         setCurrentUser: user => {
             dispatch(setCurrentUser(user))
         }
