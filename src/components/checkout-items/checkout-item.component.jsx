@@ -1,6 +1,6 @@
 import React from 'react'
 
-import {ReactComponent as Logo} from "../../assets/089-trash.svg";
+import {ReactComponent as Logo} from "../../assets/026-delete.svg";
 
 import './checkout-item.styles.scss'
 
