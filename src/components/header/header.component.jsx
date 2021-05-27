@@ -9,15 +9,17 @@ import CartDropdown from "../cart-dropdown/cart-dropdown.component";
 
 //redux imports
 import {connect} from "react-redux";
+import {selectCartToggle} from "../../store/selectors/cart.selector";
+import {selectCurrentUser} from "../../store/selectors/user.selector";
 
 const Header = (props) => (
     <div className='header'>
         <Link className='logo-container' to={'/'}>
             <Logo className='logo'/>
         </Link>
-        <div className='options'>
-            <Link className='option' to='/shop'>SHOP</Link>
-            <Link className='option' to='/shop'>CONTACT</Link>
+        <div className='btn-group options'>
+            <Link className= 'option' to='/shop'>SHOP</Link>
+            <Link className='option' to='/contact'>CONTACT</Link>
             {
                 props.currentUser?
                     <div className='option' onClick={() => auth.signOut()}>SIGN OUT</div>
@@ -38,8 +40,8 @@ const Header = (props) => (
 
 const mapStateToProps = state => {
     return {
-        currentUser: state.userReducer.currentUser,
-        cartToggle: state.cartReducer.cartHidden
+        currentUser: selectCurrentUser(state),
+        cartToggle: selectCartToggle(state)
     }
 }
 
