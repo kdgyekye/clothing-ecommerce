@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from "react-redux";
 import {withRouter, Link} from "react-router-dom";
+import {toggleCart} from "../../store/actions/cart-actions";
 
 import CustomButton from "../custom-button/custom-button.component";
 import CartItem from "../cart-item/cart-item.component";
@@ -20,8 +21,9 @@ const CartDropdown = (props) => (
                     <span className='empty-message'>You have no items in the cart</span>
             }
         </div>
-
-        <CustomButton onCLick={() => props.history.push('/checkout')}>Go To Checkout</CustomButton>
+        <CustomButton onClick={() => {props.history.push('/checkout');
+            props.dispatch(toggleCart())
+        }}>Go To Checkout</CustomButton>
     </div>
 )
 
