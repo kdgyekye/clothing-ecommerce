@@ -1,7 +1,6 @@
 import React from 'react'
 
 import './directory.styles.scss'
-import directoryData from './directory-data'
 
 //redux imports
 import {connect} from "react-redux";
