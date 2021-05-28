@@ -5,7 +5,7 @@ import {auth,createUserProfileDocument} from "../../utils/firebase.utils";
 import FormInput from '../form-input/form-input.component';
 import CustomButton from "../custom-button/custom-button.component";
 
-//redux import
+//redux imports
 import {setCurrentUser} from "../../store/actions/user.actions";
 import {connect} from "react-redux";
 
@@ -68,7 +68,7 @@ class SignIn extends React.Component {
                         <CustomButton type='submit'> Sign in </CustomButton>
                         <CustomButton onClick={signInWithGoogle} type='button' isGoogleSignin> Sign in With Google</CustomButton>
                     </div>
-                    <div onClick={e => this.props.toggleComponent(false)} style={{cursor: 'pointer'}}><p>Sign Up</p></div>
+                    <div onClick={e => this.props.toggleComponent(false)} style={{cursor: 'pointer'}} className='text-decoration-underline sign-up-text'><p>Don't have an account, Sign Up here</p></div>
                 </form>
             </div>
         );

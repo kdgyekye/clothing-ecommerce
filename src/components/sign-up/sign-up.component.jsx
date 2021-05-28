@@ -91,7 +91,7 @@ class SignIn extends React.Component {
                     />
                     <CustomButton type='submit'> Sign Up </CustomButton>
                     <br/>
-                    <div onClick={e => this.props.toggleComponent(true)} style={{cursor: 'pointer'}}><p>Sign In</p></div>
+                    <div onClick={e => this.props.toggleComponent(true)} style={{cursor: 'pointer'}} className='text-decoration-underline sign-in-text'><p>Already have an account? Sign in here</p></div>
                 </form>
             </div>
         );

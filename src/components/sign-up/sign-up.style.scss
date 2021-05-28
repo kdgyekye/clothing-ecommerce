@@ -3,3 +3,13 @@
   display: flex;
   flex-direction: column;
 }
+
+.sign-in-text {
+  margin-top: 20px;
+  color: blue;
+
+
+  &:hover {
+    color: darkorange;
+  }
+}

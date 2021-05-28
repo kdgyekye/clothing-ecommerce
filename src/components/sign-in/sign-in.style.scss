@@ -11,4 +11,14 @@
     display: flex;
     justify-content: space-between;
   }
+
+  .sign-up-text {
+    margin-top: 20px;
+    color: blue;
+
+
+    &:hover {
+      color: darkorange;
+    }
+  }
 }
