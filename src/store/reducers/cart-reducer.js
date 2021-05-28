@@ -25,7 +25,7 @@ export const cart = (state = INITIAL_STATE, action) => {
         case 'REDUCE_QUANTITY_IN_CART':
             return {
                 ...state,
-                cartItems: reduceItemQuantity(state,action.payload)
+                cartItems: reduceItemQuantity(state.cartItems,action.payload)
             }
         default:
             return state
