@@ -10,11 +10,11 @@ import {selectDirectorySections} from "../../store/selectors/directory.selector"
 //component imports
 import MenuItem from "../menu-item/menu-item.component";
 
-const Directory = ({sections}) => {
+const Directory = (props) => {
     return(
         <div className='directory-menu'>
             {
-                sections.map(({...sectionProps},index) => {
+                props.sections.map(({...sectionProps},index) => {
                     return(
                         <MenuItem key={index}
                                   {...sectionProps}
