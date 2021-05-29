@@ -8,7 +8,7 @@ import CollectionPreview from "../../components/collection-preview/collection-pr
 const CollectionOverview = props => {
     const {collectionItems} = props
     return(
-        <div className='collection-overview'>
+        <div>
             {
                 collectionItems.map(({id, ...collection}) => {
                     return(
