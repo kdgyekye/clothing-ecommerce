@@ -7,6 +7,7 @@ import CollectionPreview from "../../components/collection-preview/collection-pr
 
 const CollectionOverview = props => {
     const {collectionItems} = props
+    console.log(collectionItems)
     return(
         <div>
             {
