@@ -1,13 +1,11 @@
 import React from 'react';
 import {signInWithGoogle} from '../../utils/firebase.utils'
-import {auth,createUserProfileDocument} from "../../utils/firebase.utils";
+import {auth} from "../../utils/firebase.utils";
 
 import FormInput from '../form-input/form-input.component';
 import CustomButton from "../custom-button/custom-button.component";
 
 //redux imports
-import {setCurrentUser} from "../../store/actions/user.actions";
-import {connect} from "react-redux";
 
 import './sign-in.style.scss';
 
@@ -27,7 +25,7 @@ class SignIn extends React.Component {
         const {email,password} = this.state
 
         try{
-            const authUser = await auth.signInWithEmailAndPassword(email,password)
+            await auth.signInWithEmailAndPassword(email,password)
             this.setState({ email: '', password: '' });
         }catch (e) {
             console.log('Error: ',e)

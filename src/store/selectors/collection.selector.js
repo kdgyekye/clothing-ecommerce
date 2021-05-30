@@ -1,5 +1,4 @@
 import {createSelector} from "reselect";
-import {selectCartItems} from "./cart.selector";
 
 // const MAP_ID_TO_CATEGORY = {
 //     hats: 1,
@@ -9,14 +8,19 @@ import {selectCartItems} from "./cart.selector";
 //     mens: 5
 // }
 
-const selectCollection = state => state.collectionReducer
+const selectCollectionReducer = state => state.collectionReducer
 
-export const selectionCollectionItems = createSelector(
-    [selectCollection],
+export const selectCollections = createSelector(
+    [selectCollectionReducer],
     collection => collection.shopData
 )
 
-export const selectCategoryItems = categoryId => createSelector(
-    [selectionCollectionItems],
-    collectionItems => collectionItems[categoryId]
+export const selectCollectionsForPreview = createSelector(
+    [selectCollections],
+    collections => Object.keys(collections).map(key => collections[key])
 )
+
+export const selectCategories = categoryId => createSelector(
+        [selectCollections],
+        collectionItems => collectionItems[categoryId]
+    )
