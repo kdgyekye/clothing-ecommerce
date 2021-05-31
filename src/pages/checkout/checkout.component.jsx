@@ -7,6 +7,7 @@ import {selectCartItems, selectItemsTotal} from "../../store/selectors/cart.sele
 
 import './checkout.styles.scss'
 import CheckoutItem from "../../components/checkout-items/checkout-item.component";
+import StripePaymentButton from "../../components/stripe-payment/stripe-payment.button";
 
 const Checkout = props => (
     <div className='checkout-page'>
@@ -31,6 +32,7 @@ const Checkout = props => (
             props.cartItems.map((cartItem) => <CheckoutItem key={cartItem.id} cartItem={cartItem} />)
         }
         <div className='total'>Total: {`$${props.cartItemsTotal}`}</div>
+        <StripePaymentButton price={props.cartItemsTotal}/>
     </div>
 )
 
