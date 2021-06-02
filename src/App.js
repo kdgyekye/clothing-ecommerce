@@ -54,29 +54,31 @@ class App extends React.Component {
         return (
             <div className="App">
                 <Header active/>
-                <Switch>
-                    <Route exact={true}
-                           path='/'
-                           component={Homepage}
-                    />
-                    <Route path='/shop'
-                           component={Shop}
-                    />
-                    <Route exact={true}
-                           path='/checkout'
-                           component={Checkout}
-                    />
-                    <Route exact={true}
-                           path='/signin'
-                           render={() =>
-                               this.props.currentUser?
-                                   (<Redirect to='/' />)
-                                   : (
-                                       <SignInAndOut />
-                                   )
-                           }
-                    />
-                </Switch>
+                <div className='position-relative mt-5 pt-5'>
+                    <Switch>
+                        <Route exact={true}
+                               path='/'
+                               component={Homepage}
+                        />
+                        <Route path='/shop'
+                               component={Shop}
+                        />
+                        <Route exact={true}
+                               path='/checkout'
+                               component={Checkout}
+                        />
+                        <Route exact={true}
+                               path='/signin'
+                               render={() =>
+                                   this.props.currentUser?
+                                       (<Redirect to='/' />)
+                                       : (
+                                           <SignInAndOut />
+                                       )
+                               }
+                        />
+                    </Switch>
+                </div>
             </div>
         )
     }
