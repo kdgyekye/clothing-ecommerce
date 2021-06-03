@@ -4,6 +4,7 @@ import React from 'react'
 import {connect} from "react-redux";
 import {createStructuredSelector} from "reselect";
 import {selectCartItems, selectItemsTotal} from "../../store/selectors/cart.selector";
+import {clearAllFromCart, toggleCart} from "../../store/actions/cart-actions";
 
 import './checkout.styles.scss'
 import CheckoutItem from "../../components/checkout-items/checkout-item.component";
@@ -31,7 +32,12 @@ const Checkout = props => (
         {
             props.cartItems.map((cartItem) => <CheckoutItem key={cartItem.id} cartItem={cartItem} />)
         }
-        <div className='total'>Total: {`$${props.cartItemsTotal}`}</div>
+        <div className='footer'>
+            <span className='clear-cart'>
+                <button className='btn btn-outline-danger' onClick={props.clearAll}>Clear Cart</button>
+            </span>
+            <span className='total'>Total: {`$${props.cartItemsTotal}`}</span>
+        </div>
         <StripePaymentButton price={props.cartItemsTotal}/>
     </div>
 )
@@ -41,4 +47,10 @@ const mapStateToProps = createStructuredSelector({
     cartItemsTotal: selectItemsTotal
 })
 
-export default connect(mapStateToProps)(Checkout)
+const mapDispatchToProps = dispatch => ({
+    clearAll:  () => {
+        dispatch(clearAllFromCart())
+    }
+})
+
+export default connect(mapStateToProps,mapDispatchToProps)(Checkout)

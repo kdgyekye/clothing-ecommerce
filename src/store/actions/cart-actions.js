@@ -18,3 +18,7 @@ export const reduceQuantity = item => ({
     type: 'REDUCE_QUANTITY_IN_CART',
     payload: item
 })
+
+export const clearAllFromCart = () => ({
+    type: 'CLEAR_ALL',
+})

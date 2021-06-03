@@ -27,6 +27,11 @@ export const cart = (state = INITIAL_STATE, action) => {
                 ...state,
                 cartItems: reduceItemQuantity(state.cartItems,action.payload)
             }
+        case 'CLEAR_ALL':
+            return {
+                ...state,
+                cartItems: []
+            }
         default:
             return state
     }

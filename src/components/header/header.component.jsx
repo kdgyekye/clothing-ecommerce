@@ -1,5 +1,4 @@
-import React from "react";
-import {useEffect} from "react";
+import React, {useEffect} from "react";
 
 import './header.styles.scss'
 import {main} from "../../assets/main";
@@ -14,13 +13,16 @@ import {selectCartToggle} from "../../store/selectors/cart.selector";
 import {selectCurrentUser} from "../../store/selectors/user.selector";
 
 const Header = (props) => {
+    useEffect(() => {
+        main()
+    })
     return (
         <div id='header' className='fixed-top'>
             <div className='d-flex align-items-center justify-content-between'>
-                <Link className='logo-container' to={'/'}>
-                    <h4>Unicorn Clothing</h4>
+                <div className='logo-container' >
+                    <Link to={'/'}><h4>Unicorn Clothing</h4></Link>
                     <span><img src='favicon.ico' alt='logo' className='logo'/></span>
-                </Link>
+                </div>
                 <div className='btn-group options navbar'>
                     <Link className='option' to='/shop'>SHOP</Link>
                     <Link className='option' to='/contact'>CONTACT</Link>
@@ -50,6 +52,5 @@ const mapStateToProps = state => {
         cartToggle: selectCartToggle(state)
     }
 }
-main()
 
 export default connect(mapStateToProps)(Header)

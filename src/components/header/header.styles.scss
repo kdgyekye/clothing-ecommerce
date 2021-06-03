@@ -4,7 +4,7 @@
   //display: flex;
   justify-content: space-between;
   margin-bottom: 25px;
-  background: whitesmoke;
+  //background: whitesmoke;
   padding: 0 20px;
   overflow: inherit;
   overflow-wrap: normal;
@@ -15,8 +15,10 @@
 
     a {
       color: white;
+
     }
   }
+
 
   .logo-container {
     height: 100%;
@@ -37,6 +39,10 @@
     .option {
       padding: 10px 15px;
       cursor: pointer;
+
+      &:hover {
+        color: rebeccapurple;
+      }
     }
   }
 }
