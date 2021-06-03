@@ -10,6 +10,7 @@ import Shop from "./pages/shop/shop.component";
 import Header from "./components/header/header.component";
 import SignInAndOut from "./pages/sign-in-and-up/sign-in-and-up.component";
 import Checkout from "./pages/checkout/checkout.component";
+import ScrollToTop from "./utils/scrollToTop";
 
 //redux imports
 import {connect} from "react-redux";
@@ -55,6 +56,7 @@ class App extends React.Component {
             <div className="App">
                 <Header active/>
                 <div className='position-relative mt-5 pt-5'>
+                    <ScrollToTop />
                     <Switch>
                         <Route exact={true}
                                path='/'
