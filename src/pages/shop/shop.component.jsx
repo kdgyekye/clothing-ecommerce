@@ -2,6 +2,7 @@ import React from "react";
 import CollectionOverview from "../../components/collection-overview/collection-overview.component";
 import CategoryPage from "../category/category.component";
 import {Route} from "react-router-dom";
+import {withRouter} from "react-router-dom";
 
 //redux imports
 import {connect} from "react-redux";
@@ -15,4 +16,4 @@ const Shop = props => {
         )
 }
 
-export default connect()(Shop)
+export default withRouter(connect()(Shop))

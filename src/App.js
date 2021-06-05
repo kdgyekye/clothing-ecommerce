@@ -11,6 +11,7 @@ import Header from "./components/header/header.component";
 import SignInAndOut from "./pages/sign-in-and-up/sign-in-and-up.component";
 import Checkout from "./pages/checkout/checkout.component";
 import ScrollToTop from "./utils/scrollToTop";
+import ComponentWrapper from "./components/component-wrapper/component-wrapper";
 
 //redux imports
 import {connect} from "react-redux";
@@ -54,33 +55,57 @@ class App extends React.Component {
     render() {
         return (
             <div className="App">
-                <Header active/>
-                <div className='position-relative mt-5 pt-5'>
-                    <ScrollToTop />
-                    <Switch>
-                        <Route exact={true}
-                               path='/'
-                               component={Homepage}
-                        />
-                        <Route path='/shop'
-                               component={Shop}
-                        />
-                        <Route exact={true}
-                               path='/checkout'
-                               component={Checkout}
-                        />
-                        <Route exact={true}
-                               path='/signin'
-                               render={() =>
-                                   this.props.currentUser?
-                                       (<Redirect to='/' />)
-                                       : (
-                                           <SignInAndOut />
-                                       )
-                               }
-                        />
-                    </Switch>
-                </div>
+                <ScrollToTop />
+                <Switch>
+                    <Route exact={true}
+                           path='/'
+                           render={() => {
+                               return (
+                                   <>
+                                       <Header />
+                                       <ComponentWrapper>
+                                           <Homepage />
+                                       </ComponentWrapper>
+                                   </>
+                               )
+                           }}
+                    />
+                    <Route path='/shop'
+                           render={() => {
+                               return (
+                                   <>
+                                       <Header />
+                                       <ComponentWrapper>
+                                           <Shop />
+                                       </ComponentWrapper>
+                                   </>
+                               )
+                           }}
+                    />
+                    <Route exact={true}
+                           path='/checkout'
+                           render={() => {
+                               return (
+                                   <>
+                                       <Header />
+                                       <ComponentWrapper>
+                                           <Checkout />
+                                       </ComponentWrapper>
+                                   </>
+                               )
+                           }}
+                    />
+                    <Route exact={true}
+                           path='/signin'
+                           render={() =>
+                               this.props.currentUser?
+                                   (<Redirect to='/' />)
+                                   : (
+                                       <SignInAndOut />
+                                   )
+                           }
+                    />
+                </Switch>
             </div>
         )
     }

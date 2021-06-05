@@ -1,0 +1,24 @@
+.auth-page {
+  display: flex;
+  flex-direction: row;
+  padding: initial;
+}
+.auth-image {
+  width: 60%;
+  background-image: url("../../assets/fashion.jpg");
+  background-size: cover;
+  background-color: rebeccapurple;
+  height: 100vh;
+}
+
+.sign-in-and-up {
+  width: 40%;
+  margin-left: 20px;
+}
+
+.logo-container {
+  width: 500px;
+  padding: 15px 25px;
+  display: flex;
+  align-items: center;
+}
