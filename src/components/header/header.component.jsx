@@ -7,6 +7,7 @@ import {auth} from "../../utils/firebase.utils";
 import CartIcon from "../cart-icon/cart-icon.component";
 import CartDropdown from "../cart-dropdown/cart-dropdown.component";
 
+import {withRouter} from "react-router-dom";
 //redux imports
 import {connect} from "react-redux";
 import {selectCartToggle} from "../../store/selectors/cart.selector";
@@ -28,7 +29,12 @@ const Header = (props) => {
                     <Link className='option' to='/contact'>CONTACT</Link>
                     {
                         props.currentUser ?
-                            <div className='option' onClick={() => auth.signOut()}>SIGN OUT</div>
+                            <div className='option' onClick={() =>
+                            {
+                                auth.signOut()
+                                props.history.push('/signin')
+                            }
+                            }>SIGN OUT</div>
                             :
                             <Link className='option' to='/signin'>SIGN IN</Link>
                     }
@@ -53,4 +59,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(Header)
+export default withRouter(connect(mapStateToProps)(Header))

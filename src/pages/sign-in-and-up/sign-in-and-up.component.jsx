@@ -2,7 +2,7 @@ import React, {Component} from "react";
 
 import './sign-in-and-up.style.scss'
 import SignIn from "../../components/sign-in/sign-in.component";
-import SignOut from "../../components/sign-up/sign-up.component";
+import SignUp from "../../components/sign-up/sign-up.component";
 import {Link} from "react-router-dom";
 
 class SignInAndOut extends Component {
@@ -31,7 +31,7 @@ class SignInAndOut extends Component {
                         {componentType?
                             <SignIn toggleComponent={this.handleComponentChange}/>
                             :
-                            <SignOut toggleComponent={this.handleComponentChange}/>
+                            <SignUp toggleComponent={this.handleComponentChange}/>
                         }
                     </div>
                 </div>

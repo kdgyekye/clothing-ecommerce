@@ -8,7 +8,7 @@ import {auth, createUserProfileDocument} from "../../utils/firebase.utils";
 
 import './sign-up.style.scss';
 
-class SignIn extends React.Component {
+class SignUp extends React.Component {
     constructor(props) {
         super(props);
 
@@ -52,7 +52,7 @@ class SignIn extends React.Component {
 
     render() {
         return (
-            <div className='sign-in'>
+            <div className='sign-up'>
                 <h2>SIGN UP</h2>
                 <span>Sign up to create an account</span>
 
@@ -98,4 +98,4 @@ class SignIn extends React.Component {
     }
 }
 
-export default SignIn;
+export default SignUp;
