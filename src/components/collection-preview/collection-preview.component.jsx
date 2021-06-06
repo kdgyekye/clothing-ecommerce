@@ -6,7 +6,6 @@ import CollectionItem from "../collection-item/collection-item.component";
 import {Link} from "react-router-dom";
 
 const CollectionPreview  = ({title, items}) => (
-    <div className='container-fluid'>
         <div className='collection-preview'>
             <h1 className='title'><Link to={`shop/${title.toLowerCase()}`}>{title}</Link></h1>
             <div className='preview'>
@@ -18,7 +17,6 @@ const CollectionPreview  = ({title, items}) => (
                     })}
             </div>
         </div>
-    </div>
 )
 
 export default CollectionPreview
