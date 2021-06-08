@@ -20,7 +20,10 @@ const CollectionItem = ({item,addToCart}) => {
                     <div className='name'>{name}</div>
                     <div className='price'>{price}</div>
                 </div>
-                <CustomButton onClick={() => addToCart(item)} inverted>Add to Cart</CustomButton>
+                <div className='product-actions'>
+                    <button className='view'>View</button>
+                    <CustomButton onClick={() => addToCart(item)} inverted>Add to Cart</CustomButton>
+                </div>
             </div>
         </div>
         )

@@ -1,7 +1,5 @@
 export function main() {
 
-    console.log("I'm here")
-
     /**
      * Easy selector helper function
      */
@@ -39,7 +37,6 @@ export function main() {
      * Toggle .header-scrolled class to #header when page is scrolled
      */
     let selectHeader = select('#header')
-    console.log(selectHeader)
     if (selectHeader) {
         const headerScrolled = () => {
             if (window.scrollY > 100) {

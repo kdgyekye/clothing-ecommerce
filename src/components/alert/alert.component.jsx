@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 
 import './alert.styles.scss'
+import {Link} from "react-router-dom";
 
 class Alert extends Component{
 
@@ -15,10 +16,11 @@ class Alert extends Component{
 
     render() {
         return (
-            <div className='cart-alert'>
-                <div className="alert alert-success alert-dismissible">
+            <div>
+                <div className="alert alert-success alert-dismissible cart-alert">
                     <span><strong>Item Added!</strong> You have added item to the cart</span>
-                    <a href="#" className="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <Link href="#" className="close" data-dismiss="alert" aria-label="close" onClick={
+                        (e) => e.target.classList.add('hidden')}>&times;</Link>
                 </div>
             </div>
         );
