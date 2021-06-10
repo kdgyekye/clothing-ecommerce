@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 
 import './collection-item.styles.scss'
 import CustomButton from "../custom-button/custom-button.component";
@@ -6,11 +6,17 @@ import CustomButton from "../custom-button/custom-button.component";
 //redux imports
 import {connect} from "react-redux";
 import {addItem} from "../../store/actions/cart-actions";
+import ItemDetails from "../item-details/item-details.component";
 
 const CollectionItem = ({item,addToCart}) => {
     const {name,price,imageUrl} = item
+
+    const [modal, setModal] = useState(false);
+
+    const toggle = () => setModal(!modal);
+
     return (
-        <div className=''>
+        <div>
             <div className='collection-item'>
                 <div
                     className='image'
@@ -21,10 +27,11 @@ const CollectionItem = ({item,addToCart}) => {
                     <div className='price'>{price}</div>
                 </div>
                 <div className='product-actions'>
-                    <button className='view'>View</button>
+                    <button className='view' data-toggle="modal" data-target="#itemDetailsModal" onClick={() => toggle()}>View</button>
                     <CustomButton onClick={() => addToCart(item)} inverted>Add to Cart</CustomButton>
                 </div>
             </div>
+            <ItemDetails name price imageUrl modal/>
         </div>
         )
 }
