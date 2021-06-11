@@ -91,3 +91,16 @@
     }
   }
 }
+.quantity {
+  margin-top: 20px;
+  //padding-left: 20px;
+  display: flex;
+  align-items: center;
+
+  .arrow {
+    cursor: pointer;
+  }
+  .value {
+    margin: 0 10px;
+  }
+}
