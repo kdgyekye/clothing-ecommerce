@@ -19,7 +19,7 @@ import {setCurrentUser} from "./store/actions/user.actions";
 
 //selectors
 import {selectCurrentUser} from "./store/selectors/user.selector";
-import {selectCollections} from "./store/selectors/collection.selector";
+import {selectCollectionsForPreview} from "./store/selectors/collection.selector";
 
 
 class App extends React.Component {
@@ -45,7 +45,10 @@ class App extends React.Component {
             }
         })
 
-        addCollectionAndDocuments('shopCollections', this.props.collections)
+        addCollectionAndDocuments('shopCollections', this.props.collections.map((title, items) => ({
+            title,
+             items
+        }))).then(r => console.log(r))
     }
 
     componentWillUnmount() {
@@ -116,7 +119,7 @@ class App extends React.Component {
 }
 const mapStateToProps = (state) => ({
     currentUser: selectCurrentUser(state),
-    collections: selectCollections(state)
+    collections: selectCollectionsForPreview(state)
 })
 const mapDispatchToProps = dispatch => ({
         setCurrentUser: user => {
