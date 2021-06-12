@@ -46,7 +46,7 @@ const CollectionItem = ({item,addToCart}) => {
                 <ModalHeader toggle={toggle}>{name}</ModalHeader>
                 <ModalBody>
                     <div className='row'>
-                        <div className='col-md-6'>
+                        <div className='col-md-6 col-sm-4'>
                             <img src={`${imageUrl}`} style={{width: '100%', height: '300px'}} />
                         </div>
                         <div className='col-md-6'>
