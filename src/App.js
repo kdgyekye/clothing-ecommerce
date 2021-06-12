@@ -45,10 +45,10 @@ class App extends React.Component {
             }
         })
 
-        addCollectionAndDocuments('shopCollections', this.props.collections.map((title, items) => ({
-            title,
-             items
-        }))).then(r => console.log(r))
+        // addCollectionAndDocuments('shopCollections', this.props.collections.map((title, items) => ({
+        //     title,
+        //      items
+        // }))).then(r => console.log(r))
     }
 
     componentWillUnmount() {
