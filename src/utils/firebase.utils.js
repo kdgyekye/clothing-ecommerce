@@ -65,6 +65,21 @@ export const createUserProfileDocument = async (authUser, additionalData) => {
 //     return await batch.commit()
 // }
 
+export const convertCollectionsSnapshotToObject = (collections) => {
+    const convertedCollection = collections.docs.map( doc => {
+        const {title,items} = doc.data()
+
+        return {
+            routeName: encodeURI(title.toLowerCase()),
+            id: doc.id,
+            title,
+            items
+        }
+    })
+
+    console.log(convertedCollection)
+}
+
 const provider = new firebase.auth.GoogleAuthProvider();
 provider.setCustomParameters({ 'prompt': 'select_account' })
 export const signInWithGoogle = () => auth

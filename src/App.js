@@ -45,7 +45,7 @@ class App extends React.Component {
             }
         })
 
-        // addCollectionAndDocuments('shopCollections', this.props.collections.map((title, items) => ({
+        // addCollectionAndDocuments('shopCollections', this.props.collections.map(({title, items}) => ({
         //     title,
         //      items
         // }))).then(r => console.log(r))
@@ -53,6 +53,7 @@ class App extends React.Component {
 
     componentWillUnmount() {
         const unsubscribe = this.unsubscribeFromAuth
+        console.log(unsubscribe)
         unsubscribe()
     }
 
