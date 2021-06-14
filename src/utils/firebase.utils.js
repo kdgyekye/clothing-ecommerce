@@ -77,7 +77,10 @@ export const convertCollectionsSnapshotToObject = (collections) => {
         }
     })
 
-    console.log(convertedCollection)
+    return convertedCollection.reduce((accumulator,collection) => {
+        accumulator[collection.title.toLowerCase()] = collection
+        return accumulator
+    },{})
 }
 
 const provider = new firebase.auth.GoogleAuthProvider();

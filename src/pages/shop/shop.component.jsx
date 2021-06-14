@@ -8,15 +8,18 @@ import {firestore, convertCollectionsSnapshotToObject} from "../../utils/firebas
 
 //redux imports
 import {connect} from "react-redux";
+import {updateShopData} from "../../store/actions/collection.actions";
 
 const Shop = props => {
+    const {updateCollections} = props
 
     useEffect( () => {
         const collectionRef = firestore.collection('shopCollections')
         collectionRef.onSnapshot( async snapshot => {
-            convertCollectionsSnapshotToObject(snapshot)
+            const shopData = convertCollectionsSnapshotToObject(snapshot)
+            updateCollections(shopData)
         })
-    })
+    },[])
         return(
             <div className='shop'>
                 <Route exact path={`${props.match.path}`} component={CollectionOverview} />
@@ -25,4 +28,8 @@ const Shop = props => {
         )
 }
 
-export default withRouter(connect()(Shop))
+const mapDispatchToProps =  dispatch => ({
+    updateCollections: (collectionsObject) => dispatch(updateShopData(collectionsObject))
+})
+
+export default withRouter(connect(null,mapDispatchToProps)(Shop))
