@@ -56,16 +56,21 @@ const CollectionItem = ({item,addToCart}) => {
                                 </div>
                             </div>
                             <div className='row'>
-                                <div className='col'>
-                                    <div className='quantity'>
-                                        <i className='arrow fas fa-minus' onClick={() => reduceCount(count)}/>
-                                        <span className='value'>{count}</span>
-                                        <i className="arrow fas fa-plus" onClick={() => setCount(count+1)}/>
+                                <div className='quantity'>
+                                    <div>
+                                        Quantity:
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <i className='arrow fas fa-minus' onClick={() => reduceCount(count)}/>
+                                            <span className='value'>{count}</span>
+                                            <i className="arrow fas fa-plus" onClick={() => setCount(count+1)}/>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <div className='row'>
-                                <div className='col' style={{marginTop: '30px'}}>
+                                <div className='col add-to-cart' style={{marginTop: '30px'}}>
                                     <CustomButton onClick={() => addToCart(item)}>Add to Cart</CustomButton>
                                 </div>
                             </div>
