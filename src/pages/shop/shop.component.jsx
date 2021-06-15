@@ -21,7 +21,7 @@ const Shop = props => {
 
     useEffect( () => {
         const collectionRef = firestore.collection('shopCollections')
-        collectionRef.onSnapshot( async snapshot => {
+        collectionRef.get().then(snapshot => {
             const shopData = convertCollectionsSnapshotToObject(snapshot)
             updateCollections(shopData)
             setLoading(false)

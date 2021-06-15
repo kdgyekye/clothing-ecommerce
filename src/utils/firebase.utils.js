@@ -12,7 +12,11 @@ const firebaseConfig = {
     measurementId: "G-YXHFSTW6C8"
 };
 
-firebase.initializeApp(firebaseConfig)
+if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+}else {
+    firebase.app(); // if already initialized, use that one
+}
 
 export const auth = firebase.auth()
 export const firestore = firebase.firestore()
@@ -21,10 +25,8 @@ export const createUserProfileDocument = async (authUser, additionalData) => {
     if(!authUser) return
 
     const userRef = firestore.doc(`users/${authUser.uid}`)
-    const collectionRef = firestore.collection('users')
+    //const collectionRef = firestore.collection('users')
     console.log(userRef)
-    const collectionSnapshot = await collectionRef.get();
-    console.log({collectionSnapshot})
 
     try{
         const snapshot = await userRef.get()
@@ -65,8 +67,8 @@ export const createUserProfileDocument = async (authUser, additionalData) => {
 //     return await batch.commit()
 // }
 
-export const convertCollectionsSnapshotToObject = (collections) => {
-    const convertedCollection = collections.docs.map( doc => {
+export const convertCollectionsSnapshotToObject = (collectionsSnapshot) => {
+    const convertedCollection = collectionsSnapshot.docs.map( doc => {
         const {title,items} = doc.data()
 
         return {
@@ -76,6 +78,7 @@ export const convertCollectionsSnapshotToObject = (collections) => {
             items
         }
     })
+    console.log('Converted Collections: ',convertedCollection)
 
     return convertedCollection.reduce((accumulator,collection) => {
         accumulator[collection.title.toLowerCase()] = collection

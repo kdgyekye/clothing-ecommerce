@@ -7,7 +7,6 @@ import {selectCategories} from "../../store/selectors/collection.selector";
 import CollectionItem from "../../components/collection-item/collection-item.component";
 
 const CategoryPage = ({category}) => {
-    console.log(category)
     return(
         <div className='category-page'>
             <h1 className='title'>{category.title}</h1>
