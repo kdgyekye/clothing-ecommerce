@@ -22,5 +22,5 @@ export const selectCollectionsForPreview = createSelector(
 
 export const selectCategories = categoryId => createSelector(
         [selectCollections],
-        collectionItems => collectionItems[categoryId]
+        collectionItems => (collectionItems? collectionItems[categoryId]: null)
     )
