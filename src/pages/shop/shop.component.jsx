@@ -4,12 +4,10 @@ import CategoryPage from "../category/category.component";
 import {Route} from "react-router-dom";
 import {withRouter} from "react-router-dom";
 
-import {firestore, convertCollectionsSnapshotToObject} from "../../utils/firebase.utils";
-
 //redux imports
 import {connect} from "react-redux";
 import {fetchCollectionsStartAsync} from "../../store/actions/collection.actions";
-import {selectCollectionsFetching} from "../../store/selectors/collection.selector";
+import {selectCollectionsFetching, selectCollectionsLoaded} from "../../store/selectors/collection.selector";
 
 import WithSpinner from "../../components/with-spinner/with-spinner.component";
 
@@ -17,7 +15,7 @@ const CollectionOverviewWithSpinner = WithSpinner(CollectionOverview)
 const CategoryPageWithSpinner = WithSpinner(CategoryPage)
 
 const Shop = props => {
-    const {fetching, updateCollections} = props
+    const {fetching, collectionsLoaded, updateCollections} = props
 
     useEffect( () => {
         updateCollections()
@@ -27,13 +25,14 @@ const Shop = props => {
                 <Route exact path={`${props.match.path}`} render={(props) => (
                     <CollectionOverviewWithSpinner isLoading={fetching} {...props}/>)} />
                 <Route exact path={`${props.match.path}/:categoryId`}  render={(props) => (
-                    <CategoryPageWithSpinner isLoading={fetching} {...props}/>)} />
+                    <CategoryPageWithSpinner isLoading={!collectionsLoaded} {...props}/>)} />
             </div>
         )
 }
 
 const mapStateToProps =  state => ({
-    fetching: selectCollectionsFetching(state)
+    fetching: selectCollectionsFetching(state),
+    collectionsLoaded: selectCollectionsLoaded(state)
 })
 
 const mapDispatchToProps =  dispatch => ({

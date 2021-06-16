@@ -29,3 +29,8 @@ export const selectCollectionsFetching = createSelector(
     [selectCollectionReducer],
     collections => collections.fetching
 )
+
+export const selectCollectionsLoaded = createSelector(
+    [selectCollectionReducer],
+    collections => !!collections.shopData
+)
