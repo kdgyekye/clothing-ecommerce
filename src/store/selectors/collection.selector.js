@@ -24,3 +24,8 @@ export const selectCategories = categoryId => createSelector(
         [selectCollections],
         collectionItems => (collectionItems? collectionItems[categoryId]: null)
     )
+
+export const selectCollectionsFetching = createSelector(
+    [selectCollectionReducer],
+    collections => collections.fetching
+)

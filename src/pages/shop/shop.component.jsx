@@ -8,7 +8,8 @@ import {firestore, convertCollectionsSnapshotToObject} from "../../utils/firebas
 
 //redux imports
 import {connect} from "react-redux";
-import {updateShopData} from "../../store/actions/collection.actions";
+import {fetchCollectionsStartAsync} from "../../store/actions/collection.actions";
+import {selectCollectionsFetching} from "../../store/selectors/collection.selector";
 
 import WithSpinner from "../../components/with-spinner/with-spinner.component";
 
@@ -16,29 +17,27 @@ const CollectionOverviewWithSpinner = WithSpinner(CollectionOverview)
 const CategoryPageWithSpinner = WithSpinner(CategoryPage)
 
 const Shop = props => {
-    const [loading, setLoading] = useState(true)
-    const {updateCollections} = props
+    const {fetching, updateCollections} = props
 
     useEffect( () => {
-        const collectionRef = firestore.collection('shopCollections')
-        collectionRef.get().then(snapshot => {
-            const shopData = convertCollectionsSnapshotToObject(snapshot)
-            updateCollections(shopData)
-            setLoading(false)
-        })
+        updateCollections()
     },[])
         return(
             <div className='shop'>
                 <Route exact path={`${props.match.path}`} render={(props) => (
-                    <CollectionOverviewWithSpinner isLoading={loading} {...props}/>)} />
+                    <CollectionOverviewWithSpinner isLoading={fetching} {...props}/>)} />
                 <Route exact path={`${props.match.path}/:categoryId`}  render={(props) => (
-                    <CategoryPageWithSpinner isLoading={loading} {...props}/>)} />
+                    <CategoryPageWithSpinner isLoading={fetching} {...props}/>)} />
             </div>
         )
 }
 
-const mapDispatchToProps =  dispatch => ({
-    updateCollections: (collectionsObject) => dispatch(updateShopData(collectionsObject))
+const mapStateToProps =  state => ({
+    fetching: selectCollectionsFetching(state)
 })
 
-export default withRouter(connect(null,mapDispatchToProps)(Shop))
+const mapDispatchToProps =  dispatch => ({
+    updateCollections: () => dispatch(fetchCollectionsStartAsync())
+})
+
+export default withRouter(connect(mapStateToProps,mapDispatchToProps)(Shop))
