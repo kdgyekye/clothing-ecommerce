@@ -98,17 +98,17 @@
   justify-content: flex-end;
 }
 
-.quantity {
+.modal-quantity {
   margin-top: 20px;
   //padding-left: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  .arrow {
+  .modal-arrow {
     cursor: pointer;
   }
-  .value {
+  .modal-value {
     margin: 0 10px;
   }
 }

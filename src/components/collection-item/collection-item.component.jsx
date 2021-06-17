@@ -56,15 +56,15 @@ const CollectionItem = ({item,addToCart}) => {
                                 </div>
                             </div>
                             <div className='row'>
-                                <div className='quantity'>
+                                <div className='modal-quantity'>
                                     <div>
                                         Quantity:
                                     </div>
                                     <div>
                                         <div>
-                                            <i className='arrow fas fa-minus' onClick={() => reduceCount(count)}/>
-                                            <span className='value'>{count}</span>
-                                            <i className="arrow fas fa-plus" onClick={() => setCount(count+1)}/>
+                                            <i className='modal-arrow fas fa-minus' onClick={() => reduceCount(count)}/>
+                                            <span className='modal-value'>{count}</span>
+                                            <i className="modal-arrow fas fa-plus" onClick={() => setCount(count+1)}/>
                                         </div>
                                     </div>
                                 </div>

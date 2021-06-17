@@ -17,7 +17,7 @@ const CheckoutItem = ({cartItem,removeItem,reduceItemQuantity,increaseItemQuanti
         <span className='quantity'>
             <div className='arrow fas fa-minus' onClick={() => reduceItemQuantity(cartItem)}/>
             <span className='value'>{cartItem.quantity}</span>
-            <div className='arrow fa fa-plus' onClick={() => increaseItemQuantity(cartItem)}/>
+            <div className='arrow fas fa-plus' onClick={() => increaseItemQuantity(cartItem)}/>
         </span>
         <span className='price'>{`$${cartItem.price*cartItem.quantity}`}</span>
         <div className='remove-button'><Logo className='navbar-toggler-icon' onClick={() => removeItem(cartItem)}/></div>
