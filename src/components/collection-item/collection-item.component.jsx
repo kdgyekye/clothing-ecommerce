@@ -46,8 +46,8 @@ const CollectionItem = ({item,addToCart}) => {
                 <ModalHeader toggle={toggle}>{name}</ModalHeader>
                 <ModalBody>
                     <div className='row'>
-                        <div className='col-md-6 col-sm-4'>
-                            <img src={`${imageUrl}`} style={{width: '100%', height: '300px'}} />
+                        <div className='col-md-6'>
+                            <img src={`${imageUrl}`} style={{width: '100%', height: '80%'}} />
                         </div>
                         <div className='col-md-6'>
                             <div className='row'>
@@ -61,11 +61,9 @@ const CollectionItem = ({item,addToCart}) => {
                                         Quantity:
                                     </div>
                                     <div>
-                                        <div>
-                                            <i className='modal-arrow fas fa-minus' onClick={() => reduceCount(count)}/>
-                                            <span className='modal-value'>{count}</span>
-                                            <i className="modal-arrow fas fa-plus" onClick={() => setCount(count+1)}/>
-                                        </div>
+                                        <i className='modal-arrow fas fa-minus' onClick={() => reduceCount(count)}/>
+                                        <span className='modal-value'>{count}</span>
+                                        <i className="modal-arrow fas fa-plus" onClick={() => setCount(count+1)}/>
                                     </div>
                                 </div>
                             </div>
