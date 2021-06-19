@@ -4,14 +4,14 @@ import CustomButton from "../custom-button/custom-button.component";
 
 //redux imports
 import {connect} from "react-redux";
-import {addItem, reduceQuantity} from "../../store/actions/cart-actions";
+import {addItem, addItemWithQuantity, reduceQuantity} from "../../store/actions/cart-actions";
 import {Modal, ModalBody, ModalFooter, ModalHeader} from "reactstrap";
 
 import './collection-item.styles.scss'
 import 'fontawesome'
 
-const CollectionItem = ({item,addToCart}) => {
-    const {name,price,imageUrl} = item
+const CollectionItem = ({item,addToCart, addToCartWithQuantity}) => {
+    const {name,price,imageUrl,quantity} = item
 
     const [modal, setModal] = useState(false);
     const [count, setCount] = useState(0)
@@ -69,7 +69,7 @@ const CollectionItem = ({item,addToCart}) => {
                             </div>
                             <div className='row'>
                                 <div className='col add-to-cart' style={{marginTop: '30px'}}>
-                                    <CustomButton onClick={() => addToCart(item)}>Add to Cart</CustomButton>
+                                    <CustomButton onClick={() => addToCartWithQuantity({...item, quantity: count})}>Add to Cart</CustomButton>
                                 </div>
                             </div>
                         </div>
@@ -87,6 +87,9 @@ const CollectionItem = ({item,addToCart}) => {
 const mapDispatchToProps = dispatch => ({
         addToCart: item => {
             dispatch(addItem(item))
+        },
+        addToCartWithQuantity: item => {
+            dispatch(addItemWithQuantity(item))
         },
         reduceItemQuantity: item => dispatch(reduceQuantity(item)),
         increaseItemQuantity: item => dispatch(addItem(item))

@@ -10,7 +10,7 @@ export const addItem = item => ({
 })
 
 export const addItemWithQuantity = item => ({
-    type: 'ADD_QUANTITY',
+    type: 'ADD_WITH_QUANTITY',
     payload: item
 })
 
