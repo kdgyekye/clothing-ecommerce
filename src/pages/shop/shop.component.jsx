@@ -13,6 +13,8 @@ import WithSpinner from "../../components/with-spinner/with-spinner.component";
 
 import {Alert} from "reactstrap";
 
+import './shop.styles.scss'
+
 const CollectionOverviewWithSpinner = WithSpinner(CollectionOverview)
 const CategoryPageWithSpinner = WithSpinner(CategoryPage)
 
@@ -28,7 +30,7 @@ const Shop = props => {
     },[])
         return(
             <div className='shop'>
-                <div>
+                <div className='item-alert fixed-bottom'>
                     <Alert isOpen={alertState} color='success' toggle={alertToggle}>Item has been added to cart</Alert>
                 </div>
                 <Route exact path={`${props.match.path}`} render={(props) => (

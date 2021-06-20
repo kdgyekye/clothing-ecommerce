@@ -73,7 +73,10 @@ const CollectionItem = ({item,addToCart, addToCartWithQuantity, alertToggle}) =>
                             </div>
                             <div className='row'>
                                 <div className='col add-to-cart' style={{marginTop: '30px'}}>
-                                    <CustomButton onClick={() => addToCartWithQuantity({...item, quantity: count})}>Add to Cart</CustomButton>
+                                    <CustomButton onClick={() => {
+                                        addToCartWithQuantity({...item, quantity: count})
+                                        alertToggle()
+                                    }}>Add to Cart</CustomButton>
                                 </div>
                             </div>
                         </div>
