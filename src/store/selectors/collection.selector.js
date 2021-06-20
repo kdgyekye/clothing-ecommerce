@@ -34,3 +34,8 @@ export const selectCollectionsLoaded = createSelector(
     [selectCollectionReducer],
     collections => !!collections.shopData
 )
+
+export const selectItemAddedAlert = createSelector(
+    [selectCollectionReducer],
+    collections => collections.alertState
+)

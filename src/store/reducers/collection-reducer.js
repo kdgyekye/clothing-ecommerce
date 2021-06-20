@@ -1,7 +1,8 @@
 const INITIAL_STATE = {
     shopData: null,
     fetching: false,
-    errorMessage: undefined
+    errorMessage: undefined,
+    alertState: true
 }
 
 const collection = (state=INITIAL_STATE, action) => {
@@ -22,6 +23,11 @@ const collection = (state=INITIAL_STATE, action) => {
                 ...state,
                 fetching: false,
                 errorMessage: action.payload
+            }
+        case 'TOGGLE_ALERT':
+            return {
+                ...state,
+                alertState: !state.alertState
             }
         default:
             return state

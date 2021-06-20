@@ -31,3 +31,9 @@ export const fetchCollectionsStartAsync = () => {
         }).catch(error => dispatch(fetchCollectionsFailure(error)))
     }
 }
+
+export const toggleItemAddedAlert = (setToggle) => {
+    return {
+        type: 'TOGGLE_ALERT',
+    }
+}

@@ -6,22 +6,31 @@ import {withRouter} from "react-router-dom";
 
 //redux imports
 import {connect} from "react-redux";
-import {fetchCollectionsStartAsync} from "../../store/actions/collection.actions";
-import {selectCollectionsFetching, selectCollectionsLoaded} from "../../store/selectors/collection.selector";
+import {fetchCollectionsStartAsync, toggleItemAddedAlert} from "../../store/actions/collection.actions";
+import {selectCollectionsFetching, selectCollectionsLoaded, selectItemAddedAlert} from "../../store/selectors/collection.selector";
 
 import WithSpinner from "../../components/with-spinner/with-spinner.component";
+
+import {Alert} from "reactstrap";
 
 const CollectionOverviewWithSpinner = WithSpinner(CollectionOverview)
 const CategoryPageWithSpinner = WithSpinner(CategoryPage)
 
 const Shop = props => {
-    const {fetching, collectionsLoaded, updateCollections} = props
+    const {fetching, collectionsLoaded, updateCollections, alertState, alertToggle} = props
+
+    const [visible,setVisible] = useState(true)
+
+    const toggleVisibility = () => setVisible(false)
 
     useEffect( () => {
         updateCollections()
     },[])
         return(
             <div className='shop'>
+                <div>
+                    <Alert isOpen={alertState} color='success' toggle={alertToggle}>Item has been added to cart</Alert>
+                </div>
                 <Route exact path={`${props.match.path}`} render={(props) => (
                     <CollectionOverviewWithSpinner isLoading={fetching} {...props}/>)} />
                 <Route exact path={`${props.match.path}/:categoryId`}  render={(props) => (
@@ -32,11 +41,13 @@ const Shop = props => {
 
 const mapStateToProps =  state => ({
     fetching: selectCollectionsFetching(state),
-    collectionsLoaded: selectCollectionsLoaded(state)
+    collectionsLoaded: selectCollectionsLoaded(state),
+    alertState: selectItemAddedAlert(state)
 })
 
 const mapDispatchToProps =  dispatch => ({
-    updateCollections: () => dispatch(fetchCollectionsStartAsync())
+    updateCollections: () => dispatch(fetchCollectionsStartAsync()),
+    alertToggle: () => dispatch(toggleItemAddedAlert())
 })
 
 export default withRouter(connect(mapStateToProps,mapDispatchToProps)(Shop))

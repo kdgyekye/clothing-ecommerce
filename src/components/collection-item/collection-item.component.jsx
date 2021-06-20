@@ -9,8 +9,9 @@ import {Modal, ModalBody, ModalFooter, ModalHeader} from "reactstrap";
 
 import './collection-item.styles.scss'
 import 'fontawesome'
+import {toggleItemAddedAlert} from "../../store/actions/collection.actions";
 
-const CollectionItem = ({item,addToCart, addToCartWithQuantity}) => {
+const CollectionItem = ({item,addToCart, addToCartWithQuantity, alertToggle}) => {
     const {name,price,imageUrl,quantity} = item
 
     const [modal, setModal] = useState(false);
@@ -38,7 +39,10 @@ const CollectionItem = ({item,addToCart, addToCartWithQuantity}) => {
                 </div>
                 <div className='product-actions'>
                     <button className='view' data-toggle="modal" data-target="#itemDetailsModal" onClick={toggle}>View</button>
-                    <CustomButton onClick={() => addToCart(item)} inverted>Add to Cart</CustomButton>
+                    <CustomButton onClick={() => {
+                        addToCart(item)
+                        alertToggle()
+                    }} inverted>Add to Cart</CustomButton>
                 </div>
             </div>
             <Modal isOpen={modal} toggle={toggle} className='item-modal'>
@@ -85,14 +89,15 @@ const CollectionItem = ({item,addToCart, addToCartWithQuantity}) => {
 }
 
 const mapDispatchToProps = dispatch => ({
-        addToCart: item => {
-            dispatch(addItem(item))
-        },
-        addToCartWithQuantity: item => {
-            dispatch(addItemWithQuantity(item))
-        },
-        reduceItemQuantity: item => dispatch(reduceQuantity(item)),
-        increaseItemQuantity: item => dispatch(addItem(item))
+    addToCart: item => {
+        dispatch(addItem(item))
+    },
+    addToCartWithQuantity: item => {
+        dispatch(addItemWithQuantity(item))
+    },
+    reduceItemQuantity: item => dispatch(reduceQuantity(item)),
+    increaseItemQuantity: item => dispatch(addItem(item)),
+    alertToggle: () => dispatch(toggleItemAddedAlert())
     })
 
 export default connect(null,mapDispatchToProps)(CollectionItem);
