@@ -26,6 +26,11 @@ const CollectionItem = ({item,addToCart, addToCartWithQuantity, alertToggle}) =>
         return setCount(count - 1)
     }
 
+    const disableButton = (button, count) => {
+        if (count === 0) {
+            button.disabled = true
+        }
+    }
     return (
         <div>
             <div className='collection-item'>
@@ -41,7 +46,7 @@ const CollectionItem = ({item,addToCart, addToCartWithQuantity, alertToggle}) =>
                     <button className='view' data-toggle="modal" data-target="#itemDetailsModal" onClick={toggle}>View</button>
                     <CustomButton onClick={() => {
                         addToCart(item)
-                        alertToggle()
+                        alertToggle(true)
                     }} inverted>Add to Cart</CustomButton>
                 </div>
             </div>
@@ -75,7 +80,7 @@ const CollectionItem = ({item,addToCart, addToCartWithQuantity, alertToggle}) =>
                                 <div className='col add-to-cart' style={{marginTop: '30px'}}>
                                     <CustomButton onClick={() => {
                                         addToCartWithQuantity({...item, quantity: count})
-                                        alertToggle()
+                                        alertToggle(true)
                                     }}>Add to Cart</CustomButton>
                                 </div>
                             </div>
@@ -100,7 +105,7 @@ const mapDispatchToProps = dispatch => ({
     },
     reduceItemQuantity: item => dispatch(reduceQuantity(item)),
     increaseItemQuantity: item => dispatch(addItem(item)),
-    alertToggle: () => dispatch(toggleItemAddedAlert())
+    alertToggle: (alertState) => dispatch(toggleItemAddedAlert(alertState)),
     })
 
 export default connect(null,mapDispatchToProps)(CollectionItem);

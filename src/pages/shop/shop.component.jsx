@@ -23,7 +23,7 @@ const Shop = props => {
 
     const [visible,setVisible] = useState(true)
 
-    const toggleVisibility = () => setVisible(false)
+    const toggleVisibility = () => alertToggle(false)
 
     useEffect( () => {
         updateCollections()
@@ -31,7 +31,7 @@ const Shop = props => {
         return(
             <div className='shop'>
                 <div className='item-alert fixed-bottom'>
-                    <Alert isOpen={alertState} color='success' toggle={alertToggle}>Item has been added to cart</Alert>
+                    <Alert isOpen={alertState} color='success' toggle={toggleVisibility}>Item has been added to cart</Alert>
                 </div>
                 <Route exact path={`${props.match.path}`} render={(props) => (
                     <CollectionOverviewWithSpinner isLoading={fetching} {...props}/>)} />
@@ -49,7 +49,7 @@ const mapStateToProps =  state => ({
 
 const mapDispatchToProps =  dispatch => ({
     updateCollections: () => dispatch(fetchCollectionsStartAsync()),
-    alertToggle: () => dispatch(toggleItemAddedAlert())
+    alertToggle: (alertState) => dispatch(toggleItemAddedAlert(alertState))
 })
 
 export default withRouter(connect(mapStateToProps,mapDispatchToProps)(Shop))

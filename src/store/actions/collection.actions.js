@@ -35,5 +35,6 @@ export const fetchCollectionsStartAsync = () => {
 export const toggleItemAddedAlert = (setToggle) => {
     return {
         type: 'TOGGLE_ALERT',
+        payload: setToggle
     }
 }

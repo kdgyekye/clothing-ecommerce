@@ -2,7 +2,7 @@ import {addItemToCart, addItemToCartWithQuantity, reduceItemQuantity} from "../.
 
 const INITIAL_STATE = {
     cartHidden: true,
-    cartItems: []
+    cartItems: [],
 }
 
 export const cart = (state = INITIAL_STATE, action) => {

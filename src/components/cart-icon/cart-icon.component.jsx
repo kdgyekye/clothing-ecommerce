@@ -8,16 +8,29 @@ import './cart-icon.styles.scss'
 import {toggleCart} from "../../store/actions/cart-actions";
 import {connect} from "react-redux";
 import {selectCartItemsQuantity} from "../../store/selectors/cart.selector";
+import {selectItemAddedAlert} from "../../store/selectors/collection.selector";
 
-const CartIcon = (props) => (
-    <div className='cart-icon' onClick={props.toggleCart}>
-        <ShoppingIcon className='shopping-icon'/>
-        <span className='item-count'>{props.itemsQuantity}</span>
-    </div>
-)
+const CartIcon = (props) => {
+    const addGlowingClass = () => {
+        if (props.alertState) {
+            const quantityIndicator = document.getElementById('quantity')
+            quantityIndicator.classList.add('item-added-glow')
+            setTimeout( () => document.getElementById('quantity').classList.remove('item-added-glow') ,1000)
+        }
+    }
+    addGlowingClass()
+    return (
+        <div className='cart-icon' onClick={props.toggleCart}>
+            <ShoppingIcon className='shopping-icon'/>
+            <span className='item-count' id='quantity'>{props.itemsQuantity}</span>
+        </div>
+    )
+}
 const mapStateToProps = state => {
     return {
-        itemsQuantity: selectCartItemsQuantity(state)
+        itemsQuantity: selectCartItemsQuantity(state),
+        updatedQuantity: state.cartReducer.quantityUpdated,
+        alertState: selectItemAddedAlert(state)
     }
 }
 const mapDispatchToProps = dispatch => ({
