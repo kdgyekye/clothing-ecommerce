@@ -1,17 +1,19 @@
 import React, {useState} from "react";
 
 import CustomButton from "../custom-button/custom-button.component";
+import ItemDetails from "../item-details/item-details.component";
 
 //redux imports
 import {connect} from "react-redux";
-import {addItem, addItemWithQuantity, reduceQuantity} from "../../store/actions/cart-actions";
-import {Modal, ModalBody, ModalFooter, ModalHeader} from "reactstrap";
+import {addItem} from "../../store/actions/cart-actions";
+
+//import {Modal, ModalBody, ModalFooter, ModalHeader} from "reactstrap";
 
 import './collection-item.styles.scss'
 import 'fontawesome'
 import {toggleItemAddedAlert} from "../../store/actions/collection.actions";
 
-const CollectionItem = ({item,addToCart, addToCartWithQuantity, alertToggle}) => {
+const CollectionItem = ({item,addToCart, alertToggle}) => {
     const {name,price,imageUrl,quantity} = item
 
     const [modal, setModal] = useState(false);
@@ -20,17 +22,12 @@ const CollectionItem = ({item,addToCart, addToCartWithQuantity, alertToggle}) =>
     const toggle = () => setModal(!modal);
 
     const reduceCount = (count) => {
-        if (count == 0) {
+        if (count === 0) {
             return
         }
         return setCount(count - 1)
     }
 
-    const disableButton = (button, count) => {
-        if (count === 0) {
-            button.disabled = true
-        }
-    }
     return (
         <div>
             <div className='collection-item'>
@@ -50,48 +47,49 @@ const CollectionItem = ({item,addToCart, addToCartWithQuantity, alertToggle}) =>
                     }} inverted>Add to Cart</CustomButton>
                 </div>
             </div>
-            <Modal isOpen={modal} toggle={toggle} className='item-modal'>
-                <div className='item-details'>
-                <ModalHeader toggle={toggle}>{name}</ModalHeader>
-                <ModalBody>
-                    <div className='row'>
-                        <div className='col-md-6'>
-                            <img src={`${imageUrl}`} style={{width: '100%', height: '80%'}} />
-                        </div>
-                        <div className='col-md-6'>
-                            <div className='row'>
-                                <div className='col text-wrap'>
-                                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                                </div>
-                            </div>
-                            <div className='row'>
-                                <div className='modal-quantity'>
-                                    <div>
-                                        Quantity:
-                                    </div>
-                                    <div>
-                                        <i className='modal-arrow fas fa-minus' onClick={() => reduceCount(count)}/>
-                                        <span className='modal-value'>{count}</span>
-                                        <i className="modal-arrow fas fa-plus" onClick={() => setCount(count+1)}/>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className='row'>
-                                <div className='col add-to-cart' style={{marginTop: '30px'}}>
-                                    <CustomButton onClick={() => {
-                                        addToCartWithQuantity({...item, quantity: count})
-                                        alertToggle(true)
-                                    }}>Add to Cart</CustomButton>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </ModalBody>
-                <ModalFooter>
-                    <CustomButton onClick={toggle} inverted>Close</CustomButton>
-                </ModalFooter>
-                </div>
-            </Modal>
+            <ItemDetails item={item} />
+            {/*<Modal isOpen={modal} toggle={toggle} className='item-modal'>*/}
+            {/*    <div className='item-details'>*/}
+            {/*    <ModalHeader toggle={toggle}>{name}</ModalHeader>*/}
+            {/*    <ModalBody>*/}
+            {/*        <div className='row'>*/}
+            {/*            <div className='col-md-6'>*/}
+            {/*                <img src={`${imageUrl}`} style={{width: '100%', height: '80%'}} />*/}
+            {/*            </div>*/}
+            {/*            <div className='col-md-6'>*/}
+            {/*                <div className='row'>*/}
+            {/*                    <div className='col text-wrap'>*/}
+            {/*                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.*/}
+            {/*                    </div>*/}
+            {/*                </div>*/}
+            {/*                <div className='row'>*/}
+            {/*                    <div className='modal-quantity'>*/}
+            {/*                        <div>*/}
+            {/*                            Quantity:*/}
+            {/*                        </div>*/}
+            {/*                        <div>*/}
+            {/*                            <i className='modal-arrow fas fa-minus' onClick={() => reduceCount(count)}/>*/}
+            {/*                            <span className='modal-value' id='count'>{count}</span>*/}
+            {/*                            <i className="modal-arrow fas fa-plus" onClick={() => setCount(count+1)}/>*/}
+            {/*                        </div>*/}
+            {/*                    </div>*/}
+            {/*                </div>*/}
+            {/*                <div className='row'>*/}
+            {/*                    <div className='col add-to-cart' style={{marginTop: '30px'}}>*/}
+            {/*                        <CustomButton onClick={() => {*/}
+            {/*                            addToCartWithQuantity({...item, quantity: count})*/}
+            {/*                            alertToggle(true)*/}
+            {/*                        }} id='add-button'>Add to Cart</CustomButton>*/}
+            {/*                    </div>*/}
+            {/*                </div>*/}
+            {/*            </div>*/}
+            {/*        </div>*/}
+            {/*    </ModalBody>*/}
+            {/*    <ModalFooter>*/}
+            {/*        <CustomButton onClick={toggle} inverted>Close</CustomButton>*/}
+            {/*    </ModalFooter>*/}
+            {/*    </div>*/}
+            {/*</Modal>*/}
         </div>
         )
 }
@@ -100,11 +98,6 @@ const mapDispatchToProps = dispatch => ({
     addToCart: item => {
         dispatch(addItem(item))
     },
-    addToCartWithQuantity: item => {
-        dispatch(addItemWithQuantity(item))
-    },
-    reduceItemQuantity: item => dispatch(reduceQuantity(item)),
-    increaseItemQuantity: item => dispatch(addItem(item)),
     alertToggle: (alertState) => dispatch(toggleItemAddedAlert(alertState)),
     })
 
