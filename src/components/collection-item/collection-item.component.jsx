@@ -47,7 +47,7 @@ const CollectionItem = ({item,addToCart, alertToggle}) => {
                     }} inverted>Add to Cart</CustomButton>
                 </div>
             </div>
-            <ItemDetails item={item} />
+            <ItemDetails item={item} modal={modal} setModal={setModal}/>
             {/*<Modal isOpen={modal} toggle={toggle} className='item-modal'>*/}
             {/*    <div className='item-details'>*/}
             {/*    <ModalHeader toggle={toggle}>{name}</ModalHeader>*/}

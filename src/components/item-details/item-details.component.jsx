@@ -5,10 +5,9 @@ import {connect} from "react-redux";
 import {addItem, addItemWithQuantity, reduceQuantity} from "../../store/actions/cart-actions";
 import {toggleItemAddedAlert} from "../../store/actions/collection.actions";
 
-const ItemDetails = ({item, addToCartWithQuantity, alertToggle}) => {
-    const {name,price,imageUrl,quantity} = item
+const ItemDetails = ({item, addToCartWithQuantity, alertToggle,modal,setModal}) => {
+    const {name,price,imageUrl} = item
 
-    const [modal, setModal] = useState(false);
     const [count, setCount] = useState(0)
 
     const toggle = () => setModal(!modal);
@@ -35,10 +34,10 @@ const ItemDetails = ({item, addToCartWithQuantity, alertToggle}) => {
 
     useEffect( () => {
         disableButton()
-    },[])
+    })
 
     return (
-        <Modal isOpen={true} toggle={toggle} className='item-modal'>
+        <Modal isOpen={modal} toggle={toggle} className='item-modal'>
             <div className='item-details'>
                 <ModalHeader toggle={toggle}>{name}</ModalHeader>
                 <ModalBody>
@@ -92,4 +91,4 @@ const mapDispatchToProps = dispatch => ({
 })
 
 
-export default connect(null, mapDispatchToProps())(ItemDetails);
+export default connect(null, mapDispatchToProps)(ItemDetails);
