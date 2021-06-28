@@ -31,7 +31,9 @@ const Shop = props => {
         return(
             <div className='shop'>
                 <div className='item-alert fixed-bottom'>
-                    <Alert isOpen={alertState} color='success' toggle={toggleVisibility}>Item has been added to cart</Alert>
+                    <Alert isOpen={alertState} toggle={toggleVisibility}
+                           style={{backgroundColor: '#45dc38', color: 'black', border: 'none'}}
+                    >Item has been added to cart</Alert>
                 </div>
                 <Route exact path={`${props.match.path}`} render={(props) => (
                     <CollectionOverviewWithSpinner isLoading={fetching} {...props}/>)} />

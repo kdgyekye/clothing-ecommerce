@@ -1,5 +1,11 @@
 .item-alert {
   width: 50%;
-  z-index: 1;
-  margin: 0 auto
+  margin: 0 auto;
+  //display: flex;
+
+  button {
+    border: none;
+    background: none;
+    margin-right: 20px;
+  }
 }

@@ -20,10 +20,11 @@ const CollectionItem = ({item,addToCart, alertToggle}) => {
 
     return (
         <div>
-            <div className='collection-item' data-toggle="modal" data-target="#itemDetailsModal" onClick={toggle}>
+            <div className='collection-item'>
                 <div
                     className='image'
                     style={{backgroundImage: `url(${imageUrl})`}}
+                    data-toggle="modal" data-target="#itemDetailsModal" onClick={toggle}
                 />
                 <div className='collection-footer' >
                     <div className='name'>{name}</div>
