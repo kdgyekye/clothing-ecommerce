@@ -21,8 +21,6 @@ const CategoryPageWithSpinner = WithSpinner(CategoryPage)
 const Shop = props => {
     const {fetching, collectionsLoaded, updateCollections, alertState, alertToggle} = props
 
-    const [visible,setVisible] = useState(true)
-
     const toggleVisibility = () => alertToggle(false)
 
     const timeOutAlert = () => {
