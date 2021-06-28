@@ -12,6 +12,7 @@ import {withRouter} from "react-router-dom";
 import {connect} from "react-redux";
 import {selectCartToggle} from "../../store/selectors/cart.selector";
 import {selectCurrentUser} from "../../store/selectors/user.selector";
+import {clearAllFromCart} from "../../store/actions/cart-actions";
 
 const Header = (props) => {
     useEffect(() => {
@@ -32,7 +33,9 @@ const Header = (props) => {
                             <div className='option' onClick={() =>
                             {
                                 auth.signOut()
-                                props.history.push('/signin')
+                                props.history.push('/')
+                                props.clearCart()
+
                             }
                             }>SIGN OUT</div>
                             :
@@ -59,4 +62,10 @@ const mapStateToProps = state => {
     }
 }
 
-export default withRouter(connect(mapStateToProps)(Header))
+const mapDispatchToProps = dispatch => {
+    return {
+        clearCart: () => dispatch(clearAllFromCart())
+    }
+}
+
+export default withRouter(connect(mapStateToProps,mapDispatchToProps)(Header))

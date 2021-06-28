@@ -66,12 +66,13 @@
   &:hover {
     .image {
       opacity: 0.8;
-
+      cursor: pointer;
     }
     .product-actions {
       display: flex;
-      justify-content: space-between;
-      opacity: 0.85;
+      justify-content: center;
+      width: 80%;
+      opacity: 0.95;
     }
     transform: scale(1.05);
     transition: transform 1s ;

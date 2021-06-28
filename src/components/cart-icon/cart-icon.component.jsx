@@ -14,7 +14,7 @@ const CartIcon = (props) => {
     const addGlowingClass = () => {
         if (props.alertState) {
             const quantityIndicator = document.getElementById('quantity')
-            quantityIndicator.classList.add('item-added-glow')
+            quantityIndicator?.classList.add('item-added-glow')
             setTimeout( () => document.getElementById('quantity').classList.remove('item-added-glow') ,1000)
         }
     }
