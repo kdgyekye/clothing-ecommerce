@@ -25,9 +25,22 @@ const Shop = props => {
 
     const toggleVisibility = () => alertToggle(false)
 
+    const timeOutAlert = () => {
+        if (alertState) {
+            console.log('Alert state: ', alertState)
+            setTimeout(() => {
+                alertToggle(false)
+            }, 2000)
+        }
+    }
+
     useEffect( () => {
         updateCollections()
     },[])
+
+    useEffect( () => {
+        timeOutAlert()
+    })
         return(
             <div className='shop'>
                 <div className='item-alert fixed-bottom'>
