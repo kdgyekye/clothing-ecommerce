@@ -12,15 +12,19 @@ import MenuItem from "../menu-item/menu-item.component";
 const Directory = (props) => {
     return(
         <div className='directory-menu'>
-            {
-                props.sections.map(({...sectionProps},index) => {
-                    return(
-                        <MenuItem key={index}
-                                  {...sectionProps}
-                        />
-                    )
-                })
-            }
+            <div className='row'>
+                {
+                    props.sections.map(({...sectionProps},index) => {
+                        return(
+                            <div className='col-lg-4 col-md-6 col-sm-12'>
+                                <MenuItem key={index}
+                                          {...sectionProps}
+                                />
+                            </div>
+                        )
+                    })
+                }
+            </div>
         </div>
     )
 }
