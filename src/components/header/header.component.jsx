@@ -74,38 +74,42 @@ const Header = (props) => {
             {/*        </div>*/}
             {/*    </div>*/}
             {/*</nav>*/}
-            <Navbar expand='md'>
+            <Navbar expand='lg'>
                 <NavbarBrand className='logo-container'>
                     <Link to={'/'}><h4>Unicorn Clothing</h4></Link>
                     <span><img src='favicon.ico' alt='logo' className='logo'/></span>
                 </NavbarBrand>
-                <NavbarToggler onClick={toggle} />
-                <Collapse isOpen={isOpen} className='options' navbar>
-                    <Nav className='mr-auto options' navbar>
-                        <CartIcon/>
-                        <NavItem>
-                            <Link className='option' to='/shop'>SHOP</Link>
-                        </NavItem>
-                        <NavItem>
-                            <Link className='option' to='/contact'>CONTACT</Link>
-                        </NavItem>
-                        <NavItem>
+                <CartIcon className='options'/>
+                <div className='options'>
+                    <NavbarToggler onClick={toggle} />
+                    <Collapse isOpen={isOpen} navbar>
+                        <Nav className='' navbar>
+                            <NavItem>
+                                <NavLink><Link to='/shop'>SHOP</Link></NavLink>
+                            </NavItem>
+                            <NavItem>
+                                <NavLink><Link to='/contact'>CONTACT</Link></NavLink>
+                            </NavItem>
                             {
                                 props.currentUser ?
-                                    <div className='option' onClick={() =>
-                                    {
-                                        auth.signOut()
-                                        props.history.push('/')
-                                        props.clearCart()
+                                    <NavItem>
+                                        <NavLink><Link onClick={() =>
+                                        {
+                                            auth.signOut()
+                                            props.history.push('/')
+                                            props.clearCart()
 
-                                    }
-                                    }>SIGN OUT</div>
+                                        }
+                                        }>SIGN OUT</Link></NavLink>
+                                    </NavItem>
                                     :
-                                    <Link className='option' to='/signin'>SIGN IN</Link>
+                                    <NavItem>
+                                        <NavLink><Link to='/signin'>SIGN IN</Link></NavLink>
+                                    </NavItem>
                             }
-                        </NavItem>
-                    </Nav>
-                </Collapse>
+                        </Nav>
+                    </Collapse>
+                </div>
             </Navbar>
             {
                 props.cartToggle ?
