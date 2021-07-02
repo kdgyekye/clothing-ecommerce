@@ -1,10 +1,10 @@
 #header {
-  //height: 70px;
+  min-height: 80px;
   //width: 100vw;
   //display: flex;
-  //justify-content: space-between;
+  justify-content: space-between;
   margin-bottom: 25px;
-  //background: whitesmoke;
+  background: whitesmoke;
   padding: 0 20px;
   //overflow: inherit;
   //overflow-wrap: normal;
@@ -23,14 +23,11 @@
     }
   }
 
-
-  .logo-container {
-    height: 100%;
-    width: 500px;
-    padding: 15px 25px;
+  .brand-container {
     display: flex;
     align-items: center;
   }
+
 
   .options {
     //width: 50%;

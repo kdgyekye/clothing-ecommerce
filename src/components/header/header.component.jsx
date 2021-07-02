@@ -40,7 +40,7 @@ const Header = (props) => {
         main()
     })
     return (
-        <div id='header' className='fixed-top'>
+        <div  >
             {/*<nav className='navbar navbar-expand-lg'>*/}
             {/*    <div className='container-fluid'>*/}
             {/*        <div className='logo-container navbar-brand' >*/}
@@ -74,16 +74,15 @@ const Header = (props) => {
             {/*        </div>*/}
             {/*    </div>*/}
             {/*</nav>*/}
-            <Navbar expand='lg'>
-                <NavbarBrand className='logo-container'>
+            <Navbar id='header' expand='md' light className='fixed-top'>
+                <NavbarBrand className='brand-container'>
                     <Link to={'/'}><h4>Unicorn Clothing</h4></Link>
                     <span><img src='favicon.ico' alt='logo' className='logo'/></span>
                 </NavbarBrand>
-                <CartIcon className='options'/>
-                <div className='options'>
                     <NavbarToggler onClick={toggle} />
                     <Collapse isOpen={isOpen} navbar>
-                        <Nav className='' navbar>
+                        <CartIcon className=''/>
+                        <Nav className='mr-auto' navbar>
                             <NavItem>
                                 <NavLink><Link to='/shop'>SHOP</Link></NavLink>
                             </NavItem>
@@ -109,7 +108,6 @@ const Header = (props) => {
                             }
                         </Nav>
                     </Collapse>
-                </div>
             </Navbar>
             {
                 props.cartToggle ?
