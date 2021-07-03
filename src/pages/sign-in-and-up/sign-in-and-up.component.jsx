@@ -22,7 +22,7 @@ class SignInAndOut extends Component {
         return (
             <div className='auth-page '>
 
-                <div className='sign-in-and-up col-lg-5 col-sm-10'>
+                <div className='sign-in-and-up col-lg-5 col-sm-12'>
                     <div className='logo-container' >
                         <Link to={'/'}><h4>Unicorn Clothing</h4></Link>
                         <span><img src='favicon.ico' alt='logo' className='logo'/></span>
