@@ -22,7 +22,7 @@ class SignInAndOut extends Component {
         return (
             <div className='auth-page '>
 
-                <div className='sign-in-and-up'>
+                <div className='sign-in-and-up col-lg-5 col-sm-10'>
                     <div className='logo-container' >
                         <Link to={'/'}><h4>Unicorn Clothing</h4></Link>
                         <span><img src='favicon.ico' alt='logo' className='logo'/></span>
@@ -35,7 +35,7 @@ class SignInAndOut extends Component {
                         }
                     </div>
                 </div>
-                <div className='auth-image' />
+                <div className='auth-image col-lg-7 col-sm-10' />
             </div>
         )
     }
