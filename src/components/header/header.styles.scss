@@ -26,16 +26,13 @@
   .brand-container {
     display: flex;
     align-items: center;
+    //padding: 0 15px;
   }
 
 
   .options {
-    //width: 50%;
-    height: 100%;
     display: flex;
-    align-items: center;
     justify-content: flex-end;
-    padding: 0px 25px;
 
     .option {
       padding: 10px 15px;
