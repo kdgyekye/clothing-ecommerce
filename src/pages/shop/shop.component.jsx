@@ -41,7 +41,7 @@ const Shop = props => {
     })
         return(
             <div className='shop'>
-                <div className='item-alert fixed-bottom'>
+                <div className='item-alert fixed-bottom col-sm-3'>
                     <Alert isOpen={alertState} toggle={toggleVisibility}
                            style={{backgroundColor: '#45dc38', color: 'black', border: 'none'}}
                     >Item has been added to cart</Alert>
