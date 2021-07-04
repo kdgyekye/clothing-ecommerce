@@ -27,15 +27,19 @@ class SignInAndOut extends Component {
                         <Link to={'/'}><h4>Unicorn Clothing</h4></Link>
                         <span><img src='favicon.ico' alt='logo' className='logo'/></span>
                     </div>
-                    <div className='mt-5 pt-5'>
-                        {componentType?
-                            <SignIn toggleComponent={this.handleComponentChange}/>
-                            :
-                            <SignUp toggleComponent={this.handleComponentChange}/>
-                        }
+                    <div className='container sign-form'>
+                        <div className='mt-5 pt-5'>
+                            {componentType?
+                                <SignIn toggleComponent={this.handleComponentChange}/>
+                                :
+                                <SignUp toggleComponent={this.handleComponentChange}/>
+                            }
+                        </div>
                     </div>
                 </div>
-                <div className='auth-image col-lg-7 col-sm-10' />
+                <div className=' col-lg-7 col-sm-10'>
+                    <div className='auth-image' />
+                </div>
             </div>
         )
     }
