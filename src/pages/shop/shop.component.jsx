@@ -38,7 +38,7 @@ const Shop = props => {
 
     useEffect( () => {
         timeOutAlert()
-    })
+    },[alertState])
         return(
             <div className='shop'>
                 <div className='item-alert fixed-bottom col-sm-3'>
