@@ -22,7 +22,7 @@ import {
     NavbarBrand,
     Nav,
     NavItem,
-    NavLink, NavbarText,
+    NavLink
 } from 'reactstrap';
 
 
@@ -50,37 +50,37 @@ const Header = (props) => {
                     <Link to={'/'}><h4>Unicorn Clothing</h4></Link>
                     <span><img src='favicon.ico' alt='logo' className='logo'/></span>
                 </NavbarBrand>
+                <div>
+                    <CartIcon className=''/>
+                </div>
                 <NavbarToggler onClick={toggle} />
-                <Collapse isOpen={isOpen} navbar>
-                    <NavbarText>
-                        <Nav className='mr-auto' navbar>
-                            <NavItem>
-                                <NavLink><Link to='/shop'>SHOP</Link></NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink><Link to='/contact'>CONTACT</Link></NavLink>
-                            </NavItem>
-                            {
-                                props.currentUser ?
-                                    <NavItem>
-                                        <NavLink><Link onClick={() =>
-                                        {
-                                            auth.signOut()
-                                            props.history.push('/')
-                                            props.clearCart()
+                <Collapse isOpen={isOpen} navbar className='nav-links'>
+                    <Nav className='mr-auto' navbar>
+                        <NavItem>
+                            <NavLink><Link to='/shop'>SHOP</Link></NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink><Link to='/contact'>CONTACT</Link></NavLink>
+                        </NavItem>
+                        {
+                            props.currentUser ?
+                                <NavItem>
+                                    <NavLink><Link onClick={() =>
+                                    {
+                                        auth.signOut()
+                                        props.history.push('/')
+                                        props.clearCart()
 
-                                        }
-                                        }>SIGN OUT</Link></NavLink>
-                                    </NavItem>
-                                    :
-                                    <NavItem>
-                                        <NavLink><Link to='/signin'>SIGN IN</Link></NavLink>
-                                    </NavItem>
-                            }
-                        </Nav>
-                    </NavbarText>
+                                    }
+                                    }>SIGN OUT</Link></NavLink>
+                                </NavItem>
+                                :
+                                <NavItem>
+                                    <NavLink><Link to='/signin'>SIGN IN</Link></NavLink>
+                                </NavItem>
+                        }
+                    </Nav>
                 </Collapse>
-                <CartIcon className='options'/>
             </Navbar>
 
             {

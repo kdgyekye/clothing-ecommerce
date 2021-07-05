@@ -20,24 +20,27 @@ class SignInAndOut extends Component {
     render() {
         const {componentType} = this.state
         return (
-            <div className='auth-page '>
-
-                <div className='sign-in-and-up col-lg-5 col-sm-12'>
-                    <div className='logo-container' >
-                        <Link to={'/'}><h4>Unicorn Clothing</h4></Link>
-                        <span><img src='favicon.ico' alt='logo' className='logo'/></span>
-                    </div>
-                    <div className='container sign-form'>
-                        <div className='mt-5 pt-5'>
-                            {componentType?
-                                <SignIn toggleComponent={this.handleComponentChange}/>
-                                :
-                                <SignUp toggleComponent={this.handleComponentChange}/>
-                            }
+            <div className='auth-page row'>
+                <div className='col-lg-5 col-sm-12'>
+                    <div className='sign-in-and-up'>
+                        <div className='logo-container' >
+                            <Link to={'/'}><h4>Unicorn Clothing</h4></Link>
+                            <span><img src='favicon.ico' alt='logo' className='logo'/></span>
+                        </div>
+                        <div className='container'>
+                            <div className=' col-sm-12'>
+                                <div className='mt-5 pt-5'>
+                                    {componentType?
+                                        <SignIn toggleComponent={this.handleComponentChange}/>
+                                        :
+                                        <SignUp toggleComponent={this.handleComponentChange}/>
+                                    }
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div className=' col-lg-7 col-sm-10'>
+                <div className='col-lg-7 col-sm-12'>
                     <div className='auth-image' />
                 </div>
             </div>

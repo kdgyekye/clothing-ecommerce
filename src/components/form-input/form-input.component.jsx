@@ -14,6 +14,11 @@ const FormInput = ({ handleChange, label, ...otherProps }) => (
                 {label}
             </label>
         ) : null}
+        <p className="help-block text-danger">
+            {(otherProps.touched && otherProps.errors) &&
+            <span>{otherProps.errors}</span>
+            }
+        </p>
     </div>
 );
 

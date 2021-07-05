@@ -1,21 +1,21 @@
 .auth-page {
-  display: flex;
-  flex-direction: row;
-  //padding: initial;
-  background-color: whitesmoke;
+  background-color: white;
+  height: 100vh;
+  overflow: auto;
 
   .auth-image {
-    background-image: url("../../assets/fashion3.jpg");
+    background-image: url("../../assets/fashion1.jpg");
     background-size: contain;
     background-color: rebeccapurple;
-    height: 100vh;
-    z-index: 1;
+    min-height: 100%;
+    min-width: 100%;
+    overflow: hidden;
+    width: 100%;
+    //z-index: 1;
   }
 
   .sign-in-and-up {
-    //width: 40%;
     margin-left: 20px;
-    margin-right: 20px;
   }
 
   .logo-container {
@@ -29,11 +29,12 @@
     border: 1px solid rgba(0,0,0,.125);
     border-radius: .25rem;
     background-color: white;
+    min-height: 100%;
     padding-left: 30px;
     padding-top: 20px;
     margin-bottom: 30px;
-    -webkit-box-shadow: 0 1px 2.94px 0.06px rgb(4, 26, 55 / 16%);
-    box-shadow: 0 1px 2.94px 0.06px rgb(4, 26, 55 / 6%);
+    -webkit-box-shadow: 0 1px 2px 0.06px rgb(4, 26, 55 / 16%);
+    box-shadow: 0 1px 2px 0.06px rgb(4, 26, 55 / 6%);
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
 
