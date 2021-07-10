@@ -50,12 +50,12 @@ const Header = (props) => {
                     <Link to={'/'}><h4>Unicorn Clothing</h4></Link>
                     <span><img src='favicon.ico' alt='logo' className='logo'/></span>
                 </NavbarBrand>
-                <div>
-                    <CartIcon className=''/>
-                </div>
                 <NavbarToggler onClick={toggle} />
                 <Collapse isOpen={isOpen} navbar className='nav-links'>
                     <Nav className='mr-auto' navbar>
+                        <div>
+                            <CartIcon className=''/>
+                        </div>
                         <NavItem>
                             <NavLink><Link to='/shop'>SHOP</Link></NavLink>
                         </NavItem>
