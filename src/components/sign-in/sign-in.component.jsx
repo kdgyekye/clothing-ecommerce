@@ -69,12 +69,12 @@ const SignIn = (props) => {
                     errors = {(props.errors['password'])}
 
                 />
-                <div className='row'>
+                <div className='row justify-content-between sign-in-buttons'>
                     <div className='col-lg-5'>
                         <CustomButton type='submit'> Sign in </CustomButton>
                     </div>
                     <div className='col-lg-7 overflow-hidden'>
-                        <CustomButton onClick={signInWithGoogle} type='button' isGoogleSignin> Sign in With Google</CustomButton>
+                        <CustomButton onClick={signInWithGoogle} type='button' isGoogleSignin > Sign in With Google</CustomButton>
                     </div>
                 </div>
                 <div onClick={e => props.toggleComponent(false)} style={{cursor: 'pointer'}} className='text-decoration-underline sign-up-text'><p>Don't have an account, Sign Up here</p></div>

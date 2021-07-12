@@ -29,9 +29,9 @@ const SignUp = ({values, ...otherProps}) => {
             alert('Passwords do not match')
             return
         }
-        try{
+        try {
             const {displayName} = values
-            const {user} = await auth.createUserWithEmailAndPassword(values.email,values.password)
+            const {user} = await auth.createUserWithEmailAndPassword(values.email, values.password)
             await createUserProfileDocument(user, {displayName})
 
             setUserCredentials({
@@ -40,8 +40,8 @@ const SignUp = ({values, ...otherProps}) => {
                 password: '',
                 confirmPassword: ''
             })
-        }catch (e) {
-            console.error('Sign Up Error: ',e)
+        } catch (e) {
+            console.error('Sign Up Error: ', e)
         }
     }
     return (
@@ -58,9 +58,9 @@ const SignUp = ({values, ...otherProps}) => {
                     label='Username'
                     required
                     onChange={otherProps.handleChange}
-                    onBlur = {otherProps.handleBlur}
-                    touched = {(otherProps.touched['displayName'])}
-                    errors = {(otherProps.errors['displayName'])}
+                    onBlur={otherProps.handleBlur}
+                    touched={(otherProps.touched['displayName'])}
+                    errors={(otherProps.errors['displayName'])}
                 />
                 <FormInput
                     name='email'
@@ -70,9 +70,9 @@ const SignUp = ({values, ...otherProps}) => {
                     label='Email'
                     required
                     onChange={otherProps.handleChange}
-                    onBlur = {otherProps.handleBlur}
-                    touched = {(otherProps.touched['email'])}
-                    errors = {(otherProps.errors['email'])}
+                    onBlur={otherProps.handleBlur}
+                    touched={(otherProps.touched['email'])}
+                    errors={(otherProps.errors['email'])}
                 />
                 <FormInput
                     name='password'
@@ -82,9 +82,9 @@ const SignUp = ({values, ...otherProps}) => {
                     label='Password'
                     required
                     onChange={otherProps.handleChange}
-                    onBlur = {otherProps.handleBlur}
-                    touched = {(otherProps.touched['password'])}
-                    errors = {(otherProps.errors['password'])}
+                    onBlur={otherProps.handleBlur}
+                    touched={(otherProps.touched['password'])}
+                    errors={(otherProps.errors['password'])}
                 />
                 <FormInput
                     name='confirmPassword'
@@ -94,16 +94,19 @@ const SignUp = ({values, ...otherProps}) => {
                     label='Confirm Password'
                     required
                     onChange={otherProps.handleChange}
-                    onBlur = {otherProps.handleBlur}
-                    touched = {(otherProps.touched['confirmPassword'])}
-                    errors = {(otherProps.errors['confirmPassword'])}
+                    onBlur={otherProps.handleBlur}
+                    touched={(otherProps.touched['confirmPassword'])}
+                    errors={(otherProps.errors['confirmPassword'])}
                 />
-                <CustomButton type='submit'> Sign Up </CustomButton>
+                <CustomButton type='submit' style={{width: '70%', margin: '0 auto'}}> Sign Up </CustomButton>
                 <br/>
-                <div onClick={e => otherProps.toggleComponent(true)} style={{cursor: 'pointer'}} className='text-decoration-underline sign-in-text'><p>Already have an account? Sign in here</p></div>
+                <div onClick={e => otherProps.toggleComponent(true)} style={{cursor: 'pointer'}}
+                     className='text-decoration-underline sign-in-text'><p>Already have an account? Sign in here</p>
+                </div>
             </form>
         </div>
     );
+
 }
 
 export default withFormik({
