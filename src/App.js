@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import './App.css';
 
 //Library Imports
@@ -22,26 +22,26 @@ import {selectCurrentUser} from "./store/selectors/user.selector";
 import {selectCollectionsForPreview} from "./store/selectors/collection.selector";
 
 
-class App extends React.Component {
+const App = (props) => {
 
-    unsubscribeFromAuth = null
+    let unsubscribeFromAuth = null
 
-    componentDidMount() {
-        this.unsubscribeFromAuth = auth.onAuthStateChanged(async user => {
+    useEffect(() => {
+        unsubscribeFromAuth = auth.onAuthStateChanged(async user => {
             if (user) {
                 const userRef = await createUserProfileDocument(user)
 
                 userRef?.onSnapshot(snapshot => {
-                    this.props.setCurrentUser(
-                    {
+                    props.setCurrentUser(
+                        {
                             id: snapshot.id,
-                                ...snapshot.data()
+                            ...snapshot.data()
                         }
                     )
                 })
             }
             else {
-                this.props.setCurrentUser(user)
+                props.setCurrentUser(user)
             }
         })
 
@@ -49,72 +49,69 @@ class App extends React.Component {
         //     title,
         //      items
         // }))).then(r => console.log(r))
-    }
 
-    componentWillUnmount() {
-        const unsubscribe = this.unsubscribeFromAuth
-        console.log(unsubscribe)
-        unsubscribe()
-    }
+        return function cleanup() {
+            const unsubscribe = unsubscribeFromAuth
+            console.log(unsubscribe)
+            unsubscribe()
+        }
+    },[])
 
-
-    render() {
-        return (
-            <div className="App">
-                <ScrollToTop />
-                <Switch>
-                    <Route exact={true}
-                           path='/'
-                           render={() => {
-                               return (
-                                   <>
-                                       <Header />
-                                       <ComponentWrapper>
-                                           <Homepage />
-                                       </ComponentWrapper>
-                                   </>
+    return (
+        <div className="App">
+            <ScrollToTop />
+            <Switch>
+                <Route exact={true}
+                       path='/'
+                       render={() => {
+                           return (
+                               <>
+                                   <Header />
+                                   <ComponentWrapper>
+                                       <Homepage />
+                                   </ComponentWrapper>
+                               </>
+                           )
+                       }}
+                />
+                <Route path='/shop'
+                       render={() => {
+                           return (
+                               <>
+                                   <Header />
+                                   <ComponentWrapper>
+                                       <Shop />
+                                   </ComponentWrapper>
+                               </>
+                           )
+                       }}
+                />
+                <Route exact={true}
+                       path='/checkout'
+                       render={() => {
+                           return (
+                               <>
+                                   <Header />
+                                   <ComponentWrapper>
+                                       <Checkout />
+                                   </ComponentWrapper>
+                               </>
+                           )
+                       }}
+                />
+                <Route exact={true}
+                       path='/signin'
+                       render={() =>
+                           props.currentUser?
+                               (<Redirect to='/' />)
+                               : (
+                                   <SignInAndOut />
                                )
-                           }}
-                    />
-                    <Route path='/shop'
-                           render={() => {
-                               return (
-                                   <>
-                                       <Header />
-                                       <ComponentWrapper>
-                                           <Shop />
-                                       </ComponentWrapper>
-                                   </>
-                               )
-                           }}
-                    />
-                    <Route exact={true}
-                           path='/checkout'
-                           render={() => {
-                               return (
-                                   <>
-                                       <Header />
-                                       <ComponentWrapper>
-                                           <Checkout />
-                                       </ComponentWrapper>
-                                   </>
-                               )
-                           }}
-                    />
-                    <Route exact={true}
-                           path='/signin'
-                           render={() =>
-                               this.props.currentUser?
-                                   (<Redirect to='/' />)
-                                   : (
-                                       <SignInAndOut />
-                                   )
-                           }
-                    />
-                </Switch>
-            </div>
-        )
-    }
+                       }
+                />
+            </Switch>
+        </div>
+    )
 
 
 }
