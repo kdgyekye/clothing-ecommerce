@@ -19,7 +19,7 @@
     width: 80%;
     display: none;
     position: absolute;
-    top: 255px;
+    top: 240px;
 
     .custom-button {
       width: 60%;
@@ -62,11 +62,11 @@
     justify-content: space-between;
     font-size: 18px;
     background-color: white;
-    //border: 0.1px solid;
 
     .name {
       width: 90%;
       margin-bottom: 15px;
+      padding-left: 10px;
     }
 
     .price {

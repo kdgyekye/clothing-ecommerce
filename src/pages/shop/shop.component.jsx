@@ -34,7 +34,7 @@ const Shop = props => {
 
     useEffect( () => {
         updateCollections()
-    },[])
+    },[updateCollections])
 
     useEffect( () => {
         timeOutAlert()

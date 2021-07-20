@@ -26,15 +26,15 @@ const CollectionItem = ({item,addToCart, alertToggle}) => {
                     style={{backgroundImage: `url(${imageUrl})`}}
                     data-toggle="modal" data- target="#itemDetailsModal" onClick={toggle}
                 />
-                <div className='collection-footer rounded-bottom' >
-                    <div className='name'>{name}</div>
-                    <div className='price'>{price}</div>
-                </div>
                 <div className='product-actions'>
                     <CustomButton onClick={() => {
                         addToCart(item)
                         alertToggle(true)
                     }} inverted>Add to Cart</CustomButton>
+                </div>
+                <div className='collection-footer rounded-bottom' >
+                    <div className='name'>{name}</div>
+                    <div className='price'>{price}</div>
                 </div>
             </div>
             <ItemDetails item={item} modal={modal} setModal={setModal}/>
