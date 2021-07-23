@@ -15,7 +15,7 @@
     box-shadow: 0 0 15px rgba(0,0,0,0.25);
   }
 
-  .card-header {
+  .product-card-header {
     padding: 20px;
     text-align: center;
 
@@ -53,6 +53,11 @@
       }
     }
 
+    .quantity-title {
+      padding-right: 10px;
+      color: #353535;
+    }
+
     .product-price {
       font-size: 30px;
       color: #353535;
@@ -60,9 +65,10 @@
     }
   }
 
-  .card-footer {
+  .product-card-footer {
     display: flex;
     justify-content: space-between;
+    padding-bottom: 20px;
 
     .btns {
       padding: 10px 40px;
@@ -81,7 +87,7 @@
         background-color: #b34bf8;
 
         &:hover {
-          background-color: white;
+          background-color: #550889;
         }
       }
 

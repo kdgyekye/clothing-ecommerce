@@ -85,16 +85,17 @@ const ItemDetails = ({item, addToCartWithQuantity, alertToggle,modal,setModal}) 
         <Modal isOpen={modal} toggle={toggle} className='item-modal'>
             <div className='product-card'>
                 <div className='rating'>*****</div>
-                <div className='card-header'>
+                <div className='product-card-header'>
                     <img src={`${imageUrl}`}  alt='Product Image'/>
                 </div>
-                <div className='card-body'>
+                <div className='product-card-body'>
                     <div className='product-title'>{name}</div>
                     <div className='description'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                     </div>
                     <div className='product-credentials'>
                         <div className='product-price'>{`$${price}`}</div>
                         <div className='modal-quantity'>
+                            <div className='quantity-title'>Quantity: </div>
                             <div>
                                 <i className='modal-arrow fas fa-minus' onClick={() => reduceCount(count)}/>
                                 <span className='modal-value' id='count'>{count}</span>
@@ -102,7 +103,7 @@ const ItemDetails = ({item, addToCartWithQuantity, alertToggle,modal,setModal}) 
                             </div>
                         </div>
                     </div>
-                    <div className='card-footer'>
+                    <div className='product-card-footer'>
                         <button className='btns buy'>Buy Now</button>
                         <button className='btns add' onClick={() =>
                         {addToCartWithQuantity({...item, quantity: count})
