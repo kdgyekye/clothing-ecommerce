@@ -20,21 +20,26 @@ const CollectionItem = ({item,addToCart, alertToggle}) => {
 
     return (
         <div>
-            <div className='collection-item card shadow-lg'>
+            <div className='collection-item shadow-lg'>
                 <div
-                    className='image card-img'
+                    className='image'
                     style={{backgroundImage: `url(${imageUrl})`}}
                     data-toggle="modal" data- target="#itemDetailsModal" onClick={toggle}
                 />
                 <div className='product-actions'>
-                    <CustomButton onClick={() => {
-                        addToCart(item)
-                        alertToggle(true)
-                    }} inverted>Add to Cart</CustomButton>
+                    <CustomButton  data-toggle="modal" data- target="#itemDetailsModal" onClick={toggle} inverted>View Item</CustomButton>
                 </div>
                 <div className='collection-footer rounded-bottom' >
-                    <div className='name'>{name}</div>
-                    <div className='price'>{price}</div>
+                    <div className='name-price'>
+                        <div className='name'>{name}</div>
+                        <div className='price'>{`$${price}`}</div>
+                    </div>
+                    <div className='view'>
+                        <button className='cart-add btn-primary' onClick={() => {
+                            addToCart(item)
+                            alertToggle(true)
+                        }}><i className='fas fa-shopping-cart'/></button>
+                    </div>
                 </div>
             </div>
             <ItemDetails item={item} modal={modal} setModal={setModal}/>

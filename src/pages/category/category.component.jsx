@@ -9,10 +9,10 @@ import CollectionItem from "../../components/collection-item/collection-item.com
 const CategoryPage = ({category}) => {
     return(
         <div className='category-page'>
-            <h1 className='title'>{category.title}</h1>
+            <h1 className='title'>{category?.title}</h1>
             <div className='items'>
                 {
-                    category.items.map(item => (
+                    category?.items.map(item => (
                         <CollectionItem key={item.id} item={item}/>
                     ))
                 }
