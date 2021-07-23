@@ -38,62 +38,34 @@ const ItemDetails = ({item, addToCartWithQuantity, alertToggle,modal,setModal}) 
         disableButton()
     })
 
+    const buttonEnabled = count > 0
+    console.log(buttonEnabled)
     return (
-        // <Modal isOpen={modal} toggle={toggle} className='item-modal'>
-        //     <div className='item-details'>
-        //         <ModalHeader toggle={toggle}>{name}</ModalHeader>
-        //         <ModalBody>
-        //             <div className='row'>
-        //                 <div className='col-md-6'>
-        //                     <img src={`${imageUrl}`} style={{width: '100%', height: '80%'}} />
-        //                     <div><em><strong>Price: {`$${price}`}</strong></em></div>
-        //                 </div>
-        //                 <div className='col-md-6'>
-        //                     <div className='row'>
-        //                         <div className='col text-wrap'>
-        //                             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-        //                         </div>
-        //                     </div>
-        //                     <div className='row'>
-        //                         <div className='modal-quantity'>
-        //                             <div>
-        //                                 Quantity:
-        //                             </div>
-        //                             <div>
-        //                                 <i className='modal-arrow fas fa-minus' onClick={() => reduceCount(count)}/>
-        //                                 <span className='modal-value' id='count'>{count}</span>
-        //                                 <i className="modal-arrow fas fa-plus" onClick={() => setCount(count+1)}/>
-        //                             </div>
-        //                         </div>
-        //                     </div>
-        //                     <div className='row'>
-        //                         <div className='col add-to-cart' style={{marginTop: '30px'}}>
-        //                             <CustomButton onClick={() => {
-        //                                 addToCartWithQuantity({...item, quantity: count})
-        //                                 alertToggle(true)
-        //                             }} id='add-button'>Add to Cart</CustomButton>
-        //                         </div>
-        //                     </div>
-        //                 </div>
-        //             </div>
-        //         </ModalBody>
-        //         <ModalFooter>
-        //             <CustomButton onClick={toggle} inverted>Close</CustomButton>
-        //         </ModalFooter>
-        //     </div>
-        // </Modal>
         <Modal isOpen={modal} toggle={toggle} className='item-modal'>
             <div className='product-card'>
-                <div className='rating'>*****</div>
+                <div className='modal-header'>
+                    <div className='rating'>
+                        <i className='fa fa-star' aria-hidden='true' />
+                        <i className='fa fa-star' aria-hidden='true' />
+                        <i className='fa fa-star' aria-hidden='true' />
+                        <i className='fa fa-star' aria-hidden='true' />
+                        <i className='fa fa-star-half' aria-hidden='true' />
+                    </div>
+                    <div>
+                        <button className='btn-close' onClick={toggle}/>
+                    </div>
+                </div>
                 <div className='product-card-header'>
                     <img src={`${imageUrl}`}  alt='Product Image'/>
                 </div>
                 <div className='product-card-body'>
                     <div className='product-title'>{name}</div>
                     <div className='description'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                     </div>
                     <div className='product-credentials'>
-                        <div className='product-price'>{`$${price}`}</div>
+                        <div className='product-price'><span className='price-title'>Price: </span>{`$${price}`}</div>
                         <div className='modal-quantity'>
                             <div className='quantity-title'>Quantity: </div>
                             <div>
@@ -105,7 +77,7 @@ const ItemDetails = ({item, addToCartWithQuantity, alertToggle,modal,setModal}) 
                     </div>
                     <div className='product-card-footer'>
                         <button className='btns buy'>Buy Now</button>
-                        <button className='btns add' onClick={() =>
+                        <button className='btns add' id='add-button' disabled={!buttonEnabled} onClick={() =>
                         {addToCartWithQuantity({...item, quantity: count})
                             alertToggle(true)
                             }}>Add To Cart
