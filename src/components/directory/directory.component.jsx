@@ -16,7 +16,7 @@ const Directory = (props) => {
                 {
                     props.sections.map(({...sectionProps},index) => {
                         return(
-                            <div className='col-lg-4 col-md-6 col-sm-12'>
+                            <div className='col-md-6 col-sm-12'>
                                 <MenuItem key={index}
                                           {...sectionProps}
                                 />
