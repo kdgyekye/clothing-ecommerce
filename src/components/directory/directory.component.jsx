@@ -12,7 +12,7 @@ import MenuItem from "../menu-item/menu-item.component";
 const Directory = (props) => {
     return(
         <div className='directory-menu'>
-            <div className='row d-flex justify-content-around'>
+            <div className='row directory-items'>
                 {
                     props.sections.map(({...sectionProps},index) => {
                         return(
