@@ -43,7 +43,7 @@ const ItemDetails = ({item, addToCartWithQuantity, alertToggle,modal,setModal}) 
     return (
         <Modal isOpen={modal} toggle={toggle} className='item-modal'>
             <div className='product-card'>
-                <div className='modal-header'>
+                <div className='product-modal-header'>
                     <div className='rating'>
                         <i className='fa fa-star' aria-hidden='true' />
                         <i className='fa fa-star' aria-hidden='true' />
@@ -61,8 +61,6 @@ const ItemDetails = ({item, addToCartWithQuantity, alertToggle,modal,setModal}) 
                 <div className='product-card-body'>
                     <div className='product-title'>{name}</div>
                     <div className='description'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                     </div>
                     <div className='product-credentials'>
                         <div className='product-price'><span className='price-title'>Price: </span>{`$${price}`}</div>

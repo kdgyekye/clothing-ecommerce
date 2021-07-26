@@ -20,7 +20,7 @@ const CollectionItem = ({item,addToCart, alertToggle}) => {
 
     return (
         <div>
-            <div className='collection-item shadow-lg'>
+            <div className='collection-item card shadow-sm rounded'>
                 <div
                     className='image'
                     style={{backgroundImage: `url(${imageUrl})`}}
