@@ -7,13 +7,16 @@
   position: relative;
   background-color: white;
 
-  @media screen and(max-width: 800px) {
+  @media screen and(max-width: 700px) {
     width: 44vw;
+  }
+  @media screen and(min-width: 700px) and (max-width: 1200px){
+    width: 30vw;
   }
 
   .image {
     width: 100%;
-    height:100%;
+    height: 70%;
     background-size: cover;
     background-position: center;
     margin-bottom: 5px;
@@ -23,7 +26,7 @@
     width: 80%;
     display: none;
     position: absolute;
-    top: 205px;
+    top: 180px;
 
     .custom-button {
       width: 100%;
@@ -72,6 +75,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    align-content: flex-end;
+    margin-bottom: 10px;
     font-size: 18px;
     background-color: white;
     padding: 0 12px;
@@ -87,7 +92,6 @@
 
       .price {
         justify-content: flex-end;
-        margin-bottom: 15px;
         color: #550889;
       }
     }
@@ -99,8 +103,6 @@
         border: none;
         border-radius: 15px;
         min-width: 100%;
-        //background-color: #40aee8;
-        //color: white;
 
         &:hover {
           transform: scale(1.05);

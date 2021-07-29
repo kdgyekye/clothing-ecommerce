@@ -12,12 +12,12 @@
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 10px;
 
-    @media screen and(max-width: 500px){
+    @media screen and(max-width: 700px){
       grid-template-columns: 1fr;
-      grid-gap: 15px;
+      grid-gap: 50px;
     }
 
-    @media screen and(min-width: 700px){
+    @media screen and(min-width: 700px) and (max-width: 1200px){
       grid-template-columns: 1fr 1fr 1fr;
       grid-gap: 15px;
     }
@@ -25,12 +25,24 @@
     .collection-item{
       margin-bottom: 30px;
 
-      @media screen and(max-width: 800px){
-        width: unset;
+      @media screen and(max-width: 700px){
+        width: 85vw;
+        height: 400px;
+        margin: 0 auto;
+      }
+
+      .image {
+        @media screen and(max-width: 700px){
+          height: 100%;
+        }
       }
 
       .product-actions {
         width: 60%;
+
+        @media screen and(max-width: 700px){
+          top: 250px;
+        }
       }
     }
   }
