@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "unicornclothing",
     "public": "build",
     "ignore": [
       "firebase.json",
