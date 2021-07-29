@@ -32,15 +32,14 @@ const Header = (props) => {
     const toggle = () => setIsOpen(!isOpen);
 
 
-    const isScrolled = () => {
-        const scrolled = document.querySelector('.header-scrolled')
-        console.log(scrolled)
-        return scrolled
-    }
+    // const isScrolled = () => {
+    //     const scrolled = document.querySelector('.header-scrolled')
+    //     console.log(scrolled)
+    //     return scrolled
+    // }
 
     useEffect(() => {
         main()
-        isScrolled()
     })
 
     return (
