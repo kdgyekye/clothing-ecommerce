@@ -57,15 +57,15 @@ const Header = (props) => {
                             <CartIcon className=''/>
                         </div>
                         <NavItem>
-                            <NavLink><Link to='/shop'>SHOP</Link></NavLink>
+                            <NavLink onClick={toggle}><Link to='/shop'>SHOP</Link></NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink><Link to='/contact'>CONTACT</Link></NavLink>
+                            <NavLink onClick={toggle}><Link to='/contact'>CONTACT</Link></NavLink>
                         </NavItem>
                         {
                             props.currentUser ?
                                 <NavItem>
-                                    <NavLink><Link onClick={() =>
+                                    <NavLink onClick={toggle}><Link onClick={() =>
                                     {
                                         auth.signOut()
                                         props.history.push('/')
@@ -76,7 +76,7 @@ const Header = (props) => {
                                 </NavItem>
                                 :
                                 <NavItem>
-                                    <NavLink><Link to='/signin'>SIGN IN</Link></NavLink>
+                                    <NavLink onClick={toggle}><Link to='/signin'>SIGN IN</Link></NavLink>
                                 </NavItem>
                         }
                     </Nav>
