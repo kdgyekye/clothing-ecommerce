@@ -53,7 +53,7 @@ const Header = (props) => {
                 <NavbarToggler onClick={toggle} />
                 <Collapse isOpen={isOpen} navbar className='nav-links'>
                     <Nav className='mr-auto' navbar>
-                        <div>
+                        <div onClick={toggle}>
                             <CartIcon className=''/>
                         </div>
                         <NavItem>
