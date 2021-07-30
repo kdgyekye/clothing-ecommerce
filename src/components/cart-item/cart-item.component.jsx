@@ -4,7 +4,6 @@ import {connect} from "react-redux";
 import {removeFromCart} from "../../store/actions/cart-actions";
 
 import './cart-item.styles.scss';
-import CustomButton from "../custom-button/custom-button.component";
 
 const CartItem = ({ item, removeItem}) => {
     const { imageUrl, price, name, quantity} = item

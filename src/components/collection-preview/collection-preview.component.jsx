@@ -3,7 +3,6 @@ import React from 'react'
 import './collection-preview.styles.scss'
 
 import CollectionItem from "../collection-item/collection-item.component";
-import Alert from "../alert/alert.component";
 import {Link} from "react-router-dom";
 
 const CollectionPreview  = ({title, items}) => (

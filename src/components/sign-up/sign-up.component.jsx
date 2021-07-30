@@ -20,8 +20,6 @@ const SignUp = ({values, ...otherProps}) => {
         displayName: ''
     });
 
-    const {email, displayName, password, confirmPassword} = userCredentials
-
     const handleSubmit = async event => {
         event.preventDefault();
 

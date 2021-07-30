@@ -1,4 +1,4 @@
-import React, {useState,useEffect} from "react";
+import React, {useEffect} from "react";
 import CollectionOverview from "../../components/collection-overview/collection-overview.component";
 import CategoryPage from "../category/category.component";
 import {Route} from "react-router-dom";

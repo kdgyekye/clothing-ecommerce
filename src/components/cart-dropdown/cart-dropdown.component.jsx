@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from "react-redux";
-import {withRouter, Link} from "react-router-dom";
+import {withRouter} from "react-router-dom";
 import {toggleCart} from "../../store/actions/cart-actions";
 
 import CustomButton from "../custom-button/custom-button.component";

@@ -1,8 +1,7 @@
 import React, {useEffect, useState} from 'react';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-import CustomButton from "../custom-button/custom-button.component";
+import {Modal} from 'reactstrap';
 import {connect} from "react-redux";
-import {addItem, addItemWithQuantity, reduceQuantity} from "../../store/actions/cart-actions";
+import { addItemWithQuantity} from "../../store/actions/cart-actions";
 import {toggleItemAddedAlert} from "../../store/actions/collection.actions";
 
 import './item-details.styles.scss'
@@ -56,7 +55,7 @@ const ItemDetails = ({item, addToCartWithQuantity, alertToggle,modal,setModal}) 
                     </div>
                 </div>
                 <div className='product-card-header'>
-                    <img src={`${imageUrl}`}  alt='Product Image'/>
+                    <img src={`${imageUrl}`}  alt='Product'/>
                 </div>
                 <div className='product-card-body'>
                     <div className='product-title'>{name}</div>

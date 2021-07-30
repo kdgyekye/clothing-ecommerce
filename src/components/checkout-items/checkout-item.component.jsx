@@ -7,7 +7,6 @@ import './checkout-item.styles.scss'
 //redux imports
 import {connect} from "react-redux";
 import {removeFromCart, reduceQuantity, addItem} from "../../store/actions/cart-actions";
-import {selectItemAddedAlert} from "../../store/selectors/collection.selector";
 import {toggleItemAddedAlert} from "../../store/actions/collection.actions";
 
 const CheckoutItem = ({cartItem,removeItem,reduceItemQuantity,increaseItemQuantity, alertToggle}) => (

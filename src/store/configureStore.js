@@ -17,7 +17,7 @@ const persistedReducer = persistReducer(persistConfig, rootReducer)
 
 const middlewares = [thunk,logger]
 
-export default () => {
+const storeFunction = () => {
     const store = createStore(persistedReducer, applyMiddleware(...middlewares));
     const persistor = persistStore(store)
 
@@ -26,3 +26,5 @@ export default () => {
         persistor
     }
 }
+
+export default storeFunction

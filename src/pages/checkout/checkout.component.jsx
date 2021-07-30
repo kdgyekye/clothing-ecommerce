@@ -4,7 +4,7 @@ import React, {useEffect} from 'react'
 import {connect} from "react-redux";
 import {createStructuredSelector} from "reselect";
 import {selectCartItems, selectItemsTotal} from "../../store/selectors/cart.selector";
-import {clearAllFromCart, toggleCart} from "../../store/actions/cart-actions";
+import {clearAllFromCart} from "../../store/actions/cart-actions";
 
 import './checkout.styles.scss'
 import CheckoutItem from "../../components/checkout-items/checkout-item.component";
