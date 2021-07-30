@@ -7,9 +7,13 @@
   font-size: 20px;
   align-items: center;
 
+  @media screen and (max-width: 500px){
+    font-size: 14px;
+  }
+
   .image-container {
     width: 23%;
-    padding-right: 15px;
+    padding-right: 17px;
 
     img {
       width: 100%;
@@ -23,7 +27,6 @@
   }
 
   .quantity {
-    padding-left: 20px;
     display: flex;
     align-items: center;
 
@@ -36,7 +39,7 @@
   }
 
   .remove-button {
-    padding-left: 12px;
+    //padding-left: 12px;
     cursor: pointer;
   }
 }

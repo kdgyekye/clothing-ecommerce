@@ -16,10 +16,10 @@ const StripePaymentButton = ({price}) => {
             token={onToken}
             stripeKey={publishableKey}
             label='Pay With Stripe'
-            name='Clothing Ecommerce'
+            name='Unicorn Clothing'
             shippingAddress
             billingAddress
-            image='https://svgshare.com/i/CUz.svg'
+            image='favicon.ico'
             description={`Your total is $${price}`}
             amount={stripePrice}
         />
