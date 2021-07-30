@@ -30,6 +30,7 @@ const Checkout = props => {
 
     return (
         <div className='checkout-page'>
+            <div className='page-title'><h2>Order Summary</h2></div>
             <div className='checkout-header'>
                 <div className='header-block'>
                     <span>Product</span>
