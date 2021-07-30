@@ -51,9 +51,9 @@ const Checkout = props => {
                 props.cartItems.map((cartItem) => <CheckoutItem key={cartItem.id} cartItem={cartItem} />)
             }
             <div className='footer'>
-            <span className='clear-cart'>
-                <button className='btn btn-outline-danger' onClick={props.clearAll}>Clear Cart</button>
-            </span>
+                <span className='clear-cart'>
+                    <button className='btn btn-outline-danger' onClick={props.clearAll}>Clear Cart</button>
+                </span>
                 <span className='total'>Total: {`$${props.cartItemsTotal}`}</span>
             </div>
             <StripePaymentButton price={props.cartItemsTotal}/>

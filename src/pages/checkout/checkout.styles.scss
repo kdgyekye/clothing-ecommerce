@@ -4,7 +4,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 50px auto 0;
+  margin: 30px auto 0;
+
+  @media screen and (max-width: 500px){
+    width: 100%;
+  }
+
+  @media screen and (min-width: 1000px) and (max-width: 1400px){
+    width: 70%;
+  }
 
   .checkout-header {
     width: 100%;
@@ -16,6 +24,11 @@
     .header-block {
       text-transform: capitalize;
       width: 23%;
+      overflow-x: visible;
+
+      @media screen and (max-width: 500px){
+        font-size: 14px;
+      }
 
       &:last-child {
         width: 8%;
@@ -28,10 +41,25 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-top: 30px;
-  }
+    align-items: center;
+    margin: 30px 0;
 
-  .total {
-    font-size: 36px;
+    .clear-cart {
+      @media screen and (max-width: 500px){
+        width: 100px;
+      }
+
+      button {
+        font-size: 14px;
+      }
+    }
+
+    .total {
+      font-size: 36px;
+
+      @media screen and (max-width: 500px) {
+        font-size: 24px;
+      }
+    }
   }
 }
