@@ -1,16 +1,16 @@
 .auth-page {
   background-color: white;
   height: 100vh;
-  //overflow: auto;
+  overflow: hidden;
 
   .auth-image {
     background-image: url("../../assets/fashion5.jpg");
     background-size: cover;
     background-color: rebeccapurple;
-    min-height: 100%;
-    //min-width: 100%;
-    overflow: hidden;
-    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    -ms-overflow-x: hidden;
     z-index: 1;
   }
 
