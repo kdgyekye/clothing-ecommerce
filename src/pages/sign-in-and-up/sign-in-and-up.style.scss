@@ -11,7 +11,10 @@
     overflow-x: hidden;
     overflow-y: hidden;
     -ms-overflow-x: hidden;
-    z-index: 1;
+
+    @media screen and (max-width: 1000px) {
+      display: none;
+    }
   }
 
   .sign-in-and-up {
