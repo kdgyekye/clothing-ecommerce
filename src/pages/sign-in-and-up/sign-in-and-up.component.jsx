@@ -11,8 +11,8 @@ const SignInAndOut = () => {
         setComponentType(toggle)
     }
     return (
-        <div className='auth-page row'>
-            <div className='col-lg-5 sign-in-and-up'>
+        <div className='auth-page'>
+            <div className='sign-in-and-up'>
                 <div className='logo-container' >
                     <Link to={'/'}><h4>Unicorn Clothing</h4></Link>
                     <span><img src='favicon.ico' alt='logo' className='logo'/></span>
@@ -27,7 +27,9 @@ const SignInAndOut = () => {
                     </div>
                 </div>
             </div>
-            <div className='colauth-image' />
+            <div className='image-section'>
+                <div className='auth-image' />
+            </div>
         </div>
     )
 }

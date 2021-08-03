@@ -23,16 +23,16 @@ const SignIn = (props) => {
             console.log('Error: ',e)
             switch (e.code) {
                 case "auth/user-not-found":
-                    this.props.errors['email'] = 'Username/email is incorrect'
-                    console.log('errors: ',(this.props.errors['email']))
+                    props.errors['email'] = 'Username/email is incorrect'
+                    console.log('errors: ',(props.errors['email']))
                     break
                 case "auth/wrong-password":
-                    this.props.errors['password'] = 'Username/email is incorrect'
-                    console.log('errorsPassword: ',(this.props.errors['password']))
+                    props.errors['password'] = 'Username/email is incorrect'
+                    console.log('errorsPassword: ',(props.errors['password']))
                     break
                 default:
-                    this.props.errors['email'] = e.message
-                    console.log('errors: ',(this.props.errors['email']))
+                    props.errors['email'] = e.message
+                    console.log('errors: ',(props.errors['email']))
                     break
             }
         }
@@ -46,13 +46,12 @@ const SignIn = (props) => {
                 <FormInput
                     name='email'
                     type='email'
-                    handleChange={props.handleChange}
                     value={props.values['email']}
                     label='Email'
                     required
                     onChange={props.handleChange}
                     onBlur = {props.handleBlur}
-                    touched = {(props.touched['email'])}
+                    touched = {`${(props.touched['email'])}`}
                     errors = {(props.errors['email'])}
 
                 />
@@ -60,12 +59,11 @@ const SignIn = (props) => {
                     name='password'
                     type='password'
                     value={props.values['password']}
-                    handleChange={props.handleChange}
                     label='Password'
                     required
                     onChange={props.handleChange}
                     onBlur = {props.handleBlur}
-                    touched = {(props.touched['password'])}
+                    touched = {`${(props.touched['password'])}`}
                     errors = {(props.errors['password'])}
 
                 />
