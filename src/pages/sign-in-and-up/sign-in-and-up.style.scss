@@ -1,20 +1,31 @@
 .auth-page {
+  display: flex;
   background-color: white;
   height: 100vh;
-  overflow: hidden;
 
-  .auth-image {
-    background-image: url("../../assets/fashion5.jpg");
-    background-size: cover;
-    background-color: rebeccapurple;
-    height: 100%;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    -ms-overflow-x: hidden;
-    z-index: 1;
+  .image-section {
+    width: 60%;
+
+    .auth-image {
+      background-image: url("../../assets/fashion5.jpg");
+      background-size: cover;
+      background-color: rebeccapurple;
+      overflow: hidden;
+      height: 100%;
+    }
+
+    @media screen and (max-width: 1100px) {
+      display: none;
+    }
   }
 
   .sign-in-and-up {
+    width: 40%;
+
+    @media screen and (max-width: 1100px) {
+      width: 85%;
+      margin: 0 auto;
+    }
     margin-left: 20px;
   }
 

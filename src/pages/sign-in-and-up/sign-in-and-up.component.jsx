@@ -11,27 +11,25 @@ const SignInAndOut = () => {
         setComponentType(toggle)
     }
     return (
-        <div className='auth-page row'>
-                <div className='col-lg-5'>
-                    <div className='sign-in-and-up'>
-                        <div className='logo-container' >
-                            <Link to={'/'}><h4>Unicorn Clothing</h4></Link>
-                            <span><img src='favicon.ico' alt='logo' className='logo'/></span>
-                        </div>
-                        <div className='container'>
-                            <div className='mt-5 pt-5'>
-                                {componentType?
-                                    <SignIn toggleComponent={handleComponentChange}/>
-                                    :
-                                    <SignUp toggleComponent={handleComponentChange}/>
-                                }
-                            </div>
-                        </div>
+        <div className='auth-page'>
+            <div className='sign-in-and-up'>
+                <div className='logo-container' >
+                    <Link to={'/'}><h4>Unicorn Clothing</h4></Link>
+                    <span><img src='favicon.ico' alt='logo' className='logo'/></span>
+                </div>
+                <div className='container'>
+                    <div className='mt-5 pt-5'>
+                        {componentType?
+                            <SignIn toggleComponent={handleComponentChange}/>
+                            :
+                            <SignUp toggleComponent={handleComponentChange}/>
+                        }
                     </div>
                 </div>
-                <div className='col-lg-7'>
-                    <div className='auth-image' />
-                </div>
+            </div>
+            <div className='image-section'>
+                <div className='auth-image' />
+            </div>
         </div>
     )
 }
