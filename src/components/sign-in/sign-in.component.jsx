@@ -67,11 +67,11 @@ const SignIn = (props) => {
                     errors = {(props.errors['password'])}
 
                 />
-                <div className='row justify-content-between sign-in-buttons'>
-                    <div className='col-lg-5'>
+                <div className='sign-in-buttons'>
+                    <div className=''>
                         <CustomButton type='submit'> Sign in </CustomButton>
                     </div>
-                    <div className='col-lg-7 overflow-hidden'>
+                    <div className='overflow-hidden'>
                         <CustomButton onClick={signInWithGoogle} type='button' isGoogleSignin > Sign in With Google</CustomButton>
                     </div>
                 </div>
