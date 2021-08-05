@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 
 import FormInput from '../form-input/form-input.component';
 import CustomButton from "../custom-button/custom-button.component";
@@ -20,6 +20,21 @@ const SignUp = ({values, ...otherProps}) => {
         displayName: ''
     });
 
+<<<<<<< HEAD
+=======
+    const {email, displayName, password, confirmPassword} = userCredentials
+
+    const matchPasswords = () => {
+        if (values.password !== values.confirmPassword) {
+            otherProps.errors['displayName']
+        }
+    }
+
+    useEffect( () => {
+
+    })
+
+>>>>>>> develop
     const handleSubmit = async event => {
         event.preventDefault();
 
@@ -118,11 +133,8 @@ export default withFormik({
         email: Yup.string().email('The email you entered is not valid').required('You need to enter an email address'),
         password: Yup.string().required('You need to enter a password'),
         displayName: Yup.string().required('You need to enter your display name'),
-        // confirmPassword: () => {
-        //     if (props.values.password !== props.values.confirmPassword) {
-        //
-        //     }
-        // }
+        confirmPassword: Yup.string().required('You need to re-enter your password'),
+
     })
     }
 )(SignUp);
