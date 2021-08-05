@@ -21,6 +21,7 @@ const SignUp = ({values, ...otherProps}) => {
     });
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     const {email, displayName, password, confirmPassword} = userCredentials
 
@@ -35,6 +36,8 @@ const SignUp = ({values, ...otherProps}) => {
     })
 
 >>>>>>> develop
+=======
+>>>>>>> 4c19169c55467c6b1c924246de29afd9e21c1662
     const handleSubmit = async event => {
         event.preventDefault();
 
