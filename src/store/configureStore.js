@@ -21,6 +21,8 @@ if (process.env.NODE_ENV === 'development') {
     middlewares.push(thunk,logger)
 }
 
+else middlewares.push(thunk)
+
 const storeFunction = () => {
     const store = createStore(persistedReducer, applyMiddleware(...middlewares));
     const persistor = persistStore(store)
