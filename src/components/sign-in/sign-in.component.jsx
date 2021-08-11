@@ -72,12 +72,8 @@ const SignIn = (props) => {
 
                 />
                 <div className='sign-in-buttons'>
-                    <div className=''>
-                        <CustomButton type='submit'> Sign in </CustomButton>
-                    </div>
-                    <div className='overflow-hidden'>
-                        <CustomButton onClick={signInWithGoogle} type='button' isGoogleSignin > Sign in With Google</CustomButton>
-                    </div>
+                    <CustomButton type='submit'> Sign in </CustomButton>
+                    <CustomButton onClick={signInWithGoogle} type='button' isGoogleSignin> Sign in With Google</CustomButton>
                 </div>
                 <div onClick={e => props.toggleComponent(false)} style={{cursor: 'pointer'}} className='text-decoration-underline sign-up-text'><p>Don't have an account, Sign Up here</p></div>
             </form>
