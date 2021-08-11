@@ -1,6 +1,8 @@
 import React from 'react'
 import {ClipLoader} from "react-spinners";
 
+import './spinner-loader.styles.scss'
+
 const SpinnerLoader = () => {
     return (
         <div className='spinneroverlay'>
