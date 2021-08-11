@@ -3,7 +3,7 @@ import './App.css';
 
 //Library Imports
 import {Route, Redirect, Switch} from "react-router-dom";
-import {auth, createUserProfileDocument, addCollectionAndDocuments} from "./utils/firebase.utils";
+import {auth, createUserProfileDocument} from "./utils/firebase.utils";
 //component imports
 import Homepage from "./pages/homepage/homepage.component";
 import Shop from "./pages/shop/shop.component";

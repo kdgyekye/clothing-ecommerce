@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {signInWithGoogle} from '../../utils/firebase.utils'
 import {auth} from "../../utils/firebase.utils";
 
@@ -37,6 +37,10 @@ const SignIn = (props) => {
             }
         }
     };
+
+    useEffect(() => {
+        document.title = `Sign In - Unicorn Clothing`
+    })
     return (
         <div className='sign-in'>
             <h2>SIGN IN</h2>

@@ -13,6 +13,10 @@ import './sign-up.style.scss';
 
 const SignUp = ({values, ...otherProps}) => {
 
+    useEffect(() => {
+        document.title = `Sign Up - Unicorn Clothing`
+    })
+
     const [userCredentials, setUserCredentials] = useState({
         email: '',
         password: '',
@@ -20,24 +24,6 @@ const SignUp = ({values, ...otherProps}) => {
         displayName: ''
     });
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-    const {email, displayName, password, confirmPassword} = userCredentials
-
-    const matchPasswords = () => {
-        if (values.password !== values.confirmPassword) {
-            otherProps.errors['displayName']
-        }
-    }
-
-    useEffect( () => {
-
-    })
-
->>>>>>> develop
-=======
->>>>>>> 4c19169c55467c6b1c924246de29afd9e21c1662
     const handleSubmit = async event => {
         event.preventDefault();
 

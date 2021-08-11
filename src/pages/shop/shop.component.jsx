@@ -18,6 +18,7 @@ import './shop.styles.scss'
 const CollectionOverviewWithSpinner = WithSpinner(CollectionOverview)
 const CategoryPageWithSpinner = WithSpinner(CategoryPage)
 
+
 const Shop = props => {
     const {fetching, collectionsLoaded, updateCollections, alertState, alertToggle} = props
 

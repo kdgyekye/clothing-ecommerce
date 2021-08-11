@@ -28,6 +28,10 @@ const Checkout = props => {
         timeOutAlert()
     })
 
+    useEffect(() => {
+        document.title = `Checkout - Unicorn Clothing`
+    })
+
     return (
         <div className='checkout-page'>
             <div className='page-title'><h2>Order Summary</h2></div>
