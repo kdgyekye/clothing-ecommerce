@@ -62,7 +62,7 @@ const App = (props) => {
     return (
         <div className="App">
             <ScrollToTop />
-            <Suspense fallback={SpinnerLoader}>
+            <Suspense fallback={SpinnerLoader()}>
                 <Switch>
                     <Route exact={true}
                            path='/'

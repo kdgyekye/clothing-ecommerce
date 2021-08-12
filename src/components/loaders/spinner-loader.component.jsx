@@ -1,12 +1,21 @@
 import React from 'react'
-import {ClipLoader} from "react-spinners";
+
+import {GridLoader} from "react-spinners";
 
 import './spinner-loader.styles.scss'
 
 const SpinnerLoader = () => {
+
+    const spinnerStyles = {
+        height: '60vh',
+        width: '100%',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+    }
     return (
-        <div className='spinneroverlay'>
-            <ClipLoader size={50} color={"#4f4bd7"}/>
+        <div style={spinnerStyles}>
+            <GridLoader size={15} color={"#643df1"}/>
         </div>
     )
 }
