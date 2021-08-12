@@ -1,4 +1,4 @@
-import React, {useEffect, lazy, Suspense} from 'react'
+import React, {useEffect, lazy, Suspense, Fragment} from 'react'
 import './App.css';
 
 //Library Imports
@@ -17,6 +17,7 @@ import {selectCollectionsForPreview} from "./store/selectors/collection.selector
 import ComponentWrapper from "./components/component-wrapper/component-wrapper";
 import SpinnerLoader from "./components/loaders/spinner-loader.component";
 import Header from "./components/header/header.component";
+import TopBarLoading from "./components/loaders/topbar-loader";
 
 //component imports
 const Homepage = lazy(() => import("./pages/homepage/homepage.component"));
@@ -24,6 +25,12 @@ const Shop = lazy(() => import("./pages/shop/shop.component"));
 const  SignInAndOut = lazy(() => import("./pages/sign-in-and-up/sign-in-and-up.component"));
 const Checkout = lazy(() => import("./pages/checkout/checkout.component"));
 
+const LoadingComponent = () => (
+    <Fragment>
+        <TopBarLoading />
+        <SpinnerLoader />
+    </Fragment>
+)
 const App = (props) => {
 
     let unsubscribeFromAuth = null
@@ -62,7 +69,7 @@ const App = (props) => {
     return (
         <div className="App">
             <ScrollToTop />
-            <Suspense fallback={SpinnerLoader()}>
+            <Suspense fallback={LoadingComponent()}>
                 <Switch>
                     <Route exact={true}
                            path='/'
