@@ -2,7 +2,6 @@ import React from 'react'
 
 import {GridLoader} from "react-spinners";
 
-import './spinner-loader.styles.scss'
 
 const SpinnerLoader = () => {
 

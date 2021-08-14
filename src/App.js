@@ -25,12 +25,14 @@ const Shop = lazy(() => import("./pages/shop/shop.component"));
 const  SignInAndOut = lazy(() => import("./pages/sign-in-and-up/sign-in-and-up.component"));
 const Checkout = lazy(() => import("./pages/checkout/checkout.component"));
 
-const LoadingComponent = () => (
+export const LoadingComponent = () => {
+    console.log('Loading...')
+    return (
     <Fragment>
         <TopBarLoading />
         <SpinnerLoader />
     </Fragment>
-)
+)}
 const App = (props) => {
 
     let unsubscribeFromAuth = null
@@ -65,6 +67,10 @@ const App = (props) => {
             unsubscribe()
         }
     },[])
+
+    useEffect(() => {
+        LoadingComponent()
+    },[unsubscribeFromAuth])
 
     return (
         <div className="App">

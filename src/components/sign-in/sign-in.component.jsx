@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {signInWithGoogle} from '../../utils/firebase.utils'
 import {auth} from "../../utils/firebase.utils";
 
@@ -7,15 +7,19 @@ import CustomButton from "../custom-button/custom-button.component";
 
 import {withFormik} from "formik";
 import * as Yup from 'yup'
+import {LoadingComponent} from "../../App";
 
 import './sign-in.style.scss';
 
 const SignIn = (props) => {
+    const [signInError, setSignInError] = useState('')
 
     const handleSubmit = async event => {
         event.preventDefault();
 
         const {email,password} = props.values
+
+        LoadingComponent()
 
         try{
             await auth.signInWithEmailAndPassword(email,password)
@@ -23,12 +27,12 @@ const SignIn = (props) => {
             console.log('Error: ',e)
             switch (e.code) {
                 case "auth/user-not-found":
-                    props.errors['email'] = 'Username/email is incorrect'
-                    console.log('errors: ',(props.errors['email']))
+                    setSignInError('Username/email is incorrect')
+                    console.log('errors: ',signInError)
                     break
                 case "auth/wrong-password":
-                    props.errors['password'] = 'Username/email is incorrect'
-                    console.log('errorsPassword: ',(props.errors['password']))
+                    setSignInError('Username/email is incorrect')
+                    console.log('errors: ',signInError)
                     break
                 default:
                     props.errors['email'] = e.message
@@ -40,7 +44,12 @@ const SignIn = (props) => {
 
     useEffect(() => {
         document.title = `Sign In - Unicorn Clothing`
-    })
+    },[])
+
+    useEffect(() => {
+        setSignInError('')
+    },[props.values])
+
     return (
         <div className='sign-in'>
             <h2>SIGN IN</h2>
@@ -56,7 +65,7 @@ const SignIn = (props) => {
                     onChange={props.handleChange}
                     onBlur = {props.handleBlur}
                     touched = {`${(props.touched['email'])}`}
-                    errors = {(props.errors['email'])}
+                    errors = {(props.errors['email']) || signInError}
 
                 />
                 <FormInput
@@ -68,7 +77,7 @@ const SignIn = (props) => {
                     onChange={props.handleChange}
                     onBlur = {props.handleBlur}
                     touched = {`${(props.touched['password'])}`}
-                    errors = {(props.errors['password'])}
+                    errors = {(props.errors['password']) || signInError}
 
                 />
                 <div className='sign-in-buttons'>
