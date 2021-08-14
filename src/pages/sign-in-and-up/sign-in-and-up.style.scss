@@ -37,4 +37,17 @@
   }
 
 
+  .item-alert {
+    min-width: 30vw;
+    max-width: 40vw;
+    margin-top: -20px;
+    z-index: 2;
+    position: absolute;
+
+    button {
+      border: none;
+      background: none;
+      margin-right: 20px;
+    }
+  }
 }

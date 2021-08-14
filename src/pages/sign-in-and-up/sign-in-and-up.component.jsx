@@ -4,9 +4,20 @@ import './sign-in-and-up.style.scss'
 import SignIn from "../../components/sign-in/sign-in.component";
 import SignUp from "../../components/sign-up/sign-up.component";
 import {Link} from "react-router-dom";
+import {Alert} from "reactstrap";
 
 const SignInAndOut = () => {
     const [componentType, setComponentType] = useState(true)
+    const [alertState, setAlertState] = useState(false)
+
+    const toggleAlertHidden = () => {
+        setAlertState(false)
+    }
+
+    const toggleAlertShowing = () => {
+        setAlertState(true)
+    }
+
     const handleComponentChange = (toggle) => {
         setComponentType(toggle)
     }
@@ -18,9 +29,14 @@ const SignInAndOut = () => {
                     <span><img src='favicon.ico' alt='logo' className='logo'/></span>
                 </div>
                 <div className='container'>
+                    <div className='item-alert col-sm-3 pt-1'>
+                        <Alert isOpen={alertState} toggle={toggleAlertHidden}
+                               style={{backgroundColor: '#ec364c', color: 'black', border: 'none'}}
+                        >Username and/or password is incorrect</Alert>
+                    </div>
                     <div className='mt-5 pt-5'>
                         {componentType?
-                            <SignIn toggleComponent={handleComponentChange}/>
+                            <SignIn toggleComponent={handleComponentChange} toggle = {toggleAlertShowing}/>
                             :
                             <SignUp toggleComponent={handleComponentChange}/>
                         }

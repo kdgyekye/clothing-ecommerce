@@ -27,11 +27,11 @@ const SignIn = (props) => {
             console.log('Error: ',e)
             switch (e.code) {
                 case "auth/user-not-found":
-                    setSignInError('Username/email is incorrect')
+                    props.toggle()
                     console.log('errors: ',signInError)
                     break
                 case "auth/wrong-password":
-                    setSignInError('Username/email is incorrect')
+                    props.toggle()
                     console.log('errors: ',signInError)
                     break
                 default:
