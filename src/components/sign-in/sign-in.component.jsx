@@ -13,6 +13,7 @@ import './sign-in.style.scss';
 
 const SignIn = (props) => {
     const [signInError, setSignInError] = useState('')
+    const [retry, setRetry] = useState(false)
 
     const handleSubmit = async event => {
         event.preventDefault();

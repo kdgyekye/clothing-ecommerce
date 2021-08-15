@@ -11,12 +11,9 @@ const SignInAndOut = () => {
     const [alertState, setAlertState] = useState(false)
 
     const toggleAlertHidden = () => {
-        setAlertState(false)
+        setAlertState(!alertState)
     }
 
-    const toggleAlertShowing = () => {
-        setAlertState(true)
-    }
 
     const handleComponentChange = (toggle) => {
         setComponentType(toggle)
@@ -36,7 +33,7 @@ const SignInAndOut = () => {
                     </div>
                     <div className='mt-5 pt-5'>
                         {componentType?
-                            <SignIn toggleComponent={handleComponentChange} toggle = {toggleAlertShowing}/>
+                            <SignIn toggleComponent={handleComponentChange} toggle = {toggleAlertHidden}/>
                             :
                             <SignUp toggleComponent={handleComponentChange}/>
                         }
