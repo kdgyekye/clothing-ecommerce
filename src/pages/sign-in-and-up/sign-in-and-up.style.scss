@@ -23,9 +23,37 @@
     width: 40%;
     margin-left: 20px;
 
+    .item-alert {
+      min-width: 30vw;
+      max-width: 40vw;
+      margin-top: -20px;
+      z-index: 2;
+      position: absolute;
+
+      button {
+        border: none;
+        background: none;
+        margin-right: 20px;
+      }
+
+      @media screen and (max-width: 1100px){
+        min-width: 80vw;
+      }
+
+      @media screen and (max-width: 500px){
+        min-width: 90vw;
+        padding-right: 10px;
+
+        button {
+          margin-right: 10px;
+        }
+      }
+    }
+
     @media screen and (max-width: 1100px) {
       width: 100%;
       margin: 0 auto;
+
     }
   }
 
@@ -36,18 +64,4 @@
     align-items: center;
   }
 
-
-  .item-alert {
-    min-width: 30vw;
-    max-width: 40vw;
-    margin-top: -20px;
-    z-index: 2;
-    position: absolute;
-
-    button {
-      border: none;
-      background: none;
-      margin-right: 20px;
-    }
-  }
 }
