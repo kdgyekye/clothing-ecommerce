@@ -24,18 +24,23 @@ const SignUp = ({values, ...otherProps}) => {
         displayName: ''
     });
 
-    const [confirmPasswordError, setConfirmPasswordError] =  useState(null)
+    const [signUpErrors, setSignUpErrors] =  useState({
+        displayName: null,
+        email: null,
+        password: null,
+        confirmPassword: null
+    })
 
     useEffect(() => {
         if (values['confirmPassword'] !==  values['password']){
-            setConfirmPasswordError('Passwords do not match')
+            setSignUpErrors({confirmPassword: 'Passwords do not match'})
         }
-        else setConfirmPasswordError(null)
-    }, [values])
+        else setSignUpErrors({confirmPassword: null})
+    }, [values['confirmPassword']])
     const handleSubmit = async event => {
         event.preventDefault();
 
-        if (confirmPasswordError) {
+        if (signUpErrors.confirmPassword) {
             return
         }
         try {
@@ -51,6 +56,16 @@ const SignUp = ({values, ...otherProps}) => {
             })
         } catch (e) {
             console.error('Sign Up Error: ', e)
+            switch (e.code) {
+                case "auth/email-already-in-use":
+                    setSignUpErrors({email: e.message})
+                    break
+                case "auth/weak-password":
+                    setSignUpErrors({password: e.message})
+                    break
+                default:
+                    setSignUpErrors({email: null, password: null, confirmPassword: null, displayName: null})
+            }
         }
     }
     return (
@@ -81,7 +96,7 @@ const SignUp = ({values, ...otherProps}) => {
                     onChange={otherProps.handleChange}
                     onBlur={otherProps.handleBlur}
                     touched={(otherProps.touched['email'])}
-                    errors={(otherProps.errors['email'])}
+                    errors={(otherProps.errors['email']) || signUpErrors.email}
                 />
                 <FormInput
                     name='password'
@@ -93,7 +108,7 @@ const SignUp = ({values, ...otherProps}) => {
                     onChange={otherProps.handleChange}
                     onBlur={otherProps.handleBlur}
                     touched={(otherProps.touched['password'])}
-                    errors={(otherProps.errors['password'])}
+                    errors={(otherProps.errors['password']) || signUpErrors.password}
                 />
                 <FormInput
                     name='confirmPassword'
@@ -105,7 +120,7 @@ const SignUp = ({values, ...otherProps}) => {
                     onChange={otherProps.handleChange}
                     onBlur={otherProps.handleBlur}
                     touched={(otherProps.touched['confirmPassword'])}
-                    errors={(otherProps.errors['confirmPassword'] || confirmPasswordError)}
+                    errors={(otherProps.errors['confirmPassword'] || signUpErrors.confirmPassword)}
                 />
                 <CustomButton type='submit' style={{width: '70%', margin: '0 auto'}}> Sign Up </CustomButton>
                 <br/>
