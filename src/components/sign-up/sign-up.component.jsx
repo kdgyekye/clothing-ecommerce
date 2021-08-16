@@ -24,11 +24,18 @@ const SignUp = ({values, ...otherProps}) => {
         displayName: ''
     });
 
+    const [confirmPasswordError, setConfirmPasswordError] =  useState(null)
+
+    useEffect(() => {
+        if (values['confirmPassword'] !==  values['password']){
+            setConfirmPasswordError('Passwords do not match')
+        }
+        else setConfirmPasswordError(null)
+    }, [values])
     const handleSubmit = async event => {
         event.preventDefault();
 
-        if (values.password !== values.confirmPassword) {
-            alert('Passwords do not match')
+        if (confirmPasswordError) {
             return
         }
         try {
@@ -98,7 +105,7 @@ const SignUp = ({values, ...otherProps}) => {
                     onChange={otherProps.handleChange}
                     onBlur={otherProps.handleBlur}
                     touched={(otherProps.touched['confirmPassword'])}
-                    errors={(otherProps.errors['confirmPassword'])}
+                    errors={(otherProps.errors['confirmPassword'] || confirmPasswordError)}
                 />
                 <CustomButton type='submit' style={{width: '70%', margin: '0 auto'}}> Sign Up </CustomButton>
                 <br/>
