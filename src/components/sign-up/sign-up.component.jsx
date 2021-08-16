@@ -17,13 +17,6 @@ const SignUp = ({values, ...otherProps}) => {
         document.title = `Sign Up - Unicorn Clothing`
     })
 
-    const [userCredentials, setUserCredentials] = useState({
-        email: '',
-        password: '',
-        confirmPassword: '',
-        displayName: ''
-    });
-
     const [signUpErrors, setSignUpErrors] =  useState({
         displayName: null,
         email: null,
@@ -48,12 +41,6 @@ const SignUp = ({values, ...otherProps}) => {
             const {user} = await auth.createUserWithEmailAndPassword(values.email, values.password)
             await createUserProfileDocument(user, {displayName})
 
-            setUserCredentials({
-                email: '',
-                displayName: '',
-                password: '',
-                confirmPassword: ''
-            })
         } catch (e) {
             console.error('Sign Up Error: ', e)
             switch (e.code) {
