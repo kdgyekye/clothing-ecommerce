@@ -102,6 +102,16 @@ const App = (props) => {
                                )
                            }}
                     />
+                    <Route path='/contact'
+                           render={() => {
+                               return (
+                                   <>
+                                       <Header />
+                                       <ComponentWrapper />
+                                   </>
+                               )
+                           }}
+                    />
                     <Route exact={true}
                            path='/checkout'
                            render={() => {
