@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 
 import './header.styles.scss'
 import {main} from "../../assets/main";
-import {Link} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 import {auth} from "../../utils/firebase.utils";
 import CartIcon from "../cart-icon/cart-icon.component";
 import CartDropdown from "../cart-dropdown/cart-dropdown.component";
@@ -40,12 +40,12 @@ const Header = (props) => {
 
     useEffect(() => {
         main()
-    })
+    },[])
 
     return (
         <div>
             <Navbar id='header' expand='md' light className='fixed-top'>
-                <NavbarBrand className='brand-container'>
+                <NavbarBrand className={`brand-container`}>
                     <Link to={'/'}><h4>Unicorn Clothing</h4></Link>
                     <span><img src='favicon.ico' alt='logo' className='logo'/></span>
                 </NavbarBrand>
@@ -56,10 +56,10 @@ const Header = (props) => {
                             <CartIcon className=''/>
                         </div>
                         <NavItem>
-                            <NavLink onClick={toggle}><Link to='/shop'>SHOP</Link></NavLink>
+                            <NavLink onClick={toggle} className={`${'/shop' === useLocation().pathname?'active' : ''}`}><Link to='/shop'>SHOP</Link></NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink onClick={toggle}><Link to='/contact'>CONTACT</Link></NavLink>
+                            <NavLink onClick={toggle} className={`${'/contact' === useLocation().pathname?'active' : ''}`}><Link to='/contact'>CONTACT</Link></NavLink>
                         </NavItem>
                         {
                             props.currentUser ?
