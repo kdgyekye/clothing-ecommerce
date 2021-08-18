@@ -24,13 +24,13 @@ import {
     NavItem,
     NavLink
 } from 'reactstrap';
-
-
 const Header = (props) => {
     const [isOpen, setIsOpen] = useState(false);
 
     const toggle = () => setIsOpen(!isOpen);
 
+    const shopRoute = props.history.location.pathname.split('/')
+    const isShopRoute = shopRoute.includes('shop')
 
     // const isScrolled = () => {
     //     const scrolled = document.querySelector('.header-scrolled')
@@ -56,7 +56,7 @@ const Header = (props) => {
                             <CartIcon className=''/>
                         </div>
                         <NavItem>
-                            <NavLink onClick={toggle} className={`${'/shop' === useLocation().pathname?'active' : ''}`}><Link to='/shop'>SHOP</Link></NavLink>
+                            <NavLink onClick={toggle} className={`${isShopRoute?'active' : ''}`}><Link to='/shop'>SHOP</Link></NavLink>
                         </NavItem>
                         <NavItem>
                             <NavLink onClick={toggle} className={`${'/contact' === useLocation().pathname?'active' : ''}`}><Link to='/contact'>CONTACT</Link></NavLink>
