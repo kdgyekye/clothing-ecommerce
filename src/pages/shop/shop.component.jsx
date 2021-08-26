@@ -11,6 +11,9 @@ import {selectCollectionsFetching, selectCollectionsLoaded, selectItemAddedAlert
 
 import WithSpinner from "../../components/with-spinner/with-spinner.component";
 
+import CollectionsOverviewContainer
+    from "../../components/collections-overview container/collections-overview-container";
+
 import {Alert} from "reactstrap";
 
 import './shop.styles.scss'
@@ -48,7 +51,8 @@ const Shop = props => {
                     >Item has been added to cart</Alert>
                 </div>
                 <Route exact path={`${props.match.path}`} render={(props) => (
-                    <CollectionOverviewWithSpinner isLoading={fetching} {...props}/>)} />
+                    // <CollectionOverviewWithSpinner isLoading={fetching} {...props}/>
+                    <CollectionsOverviewContainer/>)} />
                 <Route exact path={`${props.match.path}/:categoryId`}  render={(props) => (
                     <CategoryPageWithSpinner isLoading={!collectionsLoaded} {...props}/>)} />
             </div>

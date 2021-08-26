@@ -9,17 +9,36 @@ import {Provider} from "react-redux";
 import {PersistGate} from "redux-persist/integration/react";
 import ConfigureStore from './store/configureStore'
 
+//apollo graphql
+import {ApolloProvider} from "react-apollo";
+import {ApolloClient} from "apollo-boost";
+import {InMemoryCache} from 'apollo-cache-inmemory'
+import {createHttpLink} from 'apollo-link-http'
+
+
+const httpLink = createHttpLink({
+    uri: 'https://crwn-clothing.com'
+})
+
+const cache = new InMemoryCache()
+
+const client = new ApolloClient({
+    link: httpLink,
+    cache
+})
 const {store, persistor} = ConfigureStore()
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
-        <Router>
-            <PersistGate persistor={persistor}>
-                <App />
-            </PersistGate>
-        </Router>
-    </Provider>
+    <ApolloProvider client={client}>
+        <Provider store={store}>
+            <Router>
+                <PersistGate persistor={persistor}>
+                    <App />
+                </PersistGate>
+            </Router>
+        </Provider>
+    </ApolloProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
