@@ -15,6 +15,7 @@ import {selectCurrentUser} from "./store/selectors/user.selector";
 import {selectCollectionsForPreview} from "./store/selectors/collection.selector";
 
 import ComponentWrapper from "./components/component-wrapper/component-wrapper";
+
 import SpinnerLoader from "./components/loaders/spinner-loader.component";
 import Header from "./components/header/header.component";
 import TopBarLoading from "./components/loaders/topbar-loader";
