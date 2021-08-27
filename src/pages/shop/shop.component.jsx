@@ -60,7 +60,7 @@ const Shop = props => {
 }
 
 const mapStateToProps =  state => ({
-    fetching: selectCollectionsFetching(state),
+    //fetching: selectCollectionsFetching(state),
     collectionsLoaded: selectCollectionsLoaded(state),
     alertState: selectItemAddedAlert(state)
 })

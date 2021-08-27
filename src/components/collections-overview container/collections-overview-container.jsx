@@ -1,6 +1,6 @@
 import React from 'react'
 
-import {Query} from "react-apollo";
+import {useQuery} from "@apollo/react-hooks";
 import {gql} from 'apollo-boost'
 import CollectionOverview from "../collection-overview/collection-overview.component";
 import SpinnerLoader from "../loaders/spinner-loader.component";
@@ -21,19 +21,12 @@ const GET_COLLECTIONS = gql`
 `;
 
 const CollectionsOverviewContainer = () => {
-    return (
-        <Query query={GET_COLLECTIONS}>
-            {
-                ({loading, error, data}) => {
-                    console.log(loading)
-                    console.log({error})
-                    console.log({data})
+    const {loading,data,error} = useQuery(GET_COLLECTIONS)
+    console.log({error} || {data})
 
-                    if (loading) return <SpinnerLoader />
-                    return <CollectionOverview collectionItems={data?.collections}/>
-                }
-            }
-        </Query>
+    if (loading) return <SpinnerLoader />
+    return (
+        <CollectionOverview collectionItems={data?.collections} />
     )
 }
 

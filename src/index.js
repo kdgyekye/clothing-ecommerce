@@ -10,7 +10,7 @@ import {PersistGate} from "redux-persist/integration/react";
 import ConfigureStore from './store/configureStore'
 
 //apollo graphql
-import {ApolloProvider} from "react-apollo";
+import {ApolloProvider} from "@apollo/react-hooks";
 import {ApolloClient} from "apollo-boost";
 import {InMemoryCache} from 'apollo-cache-inmemory'
 import {createHttpLink} from 'apollo-link-http'

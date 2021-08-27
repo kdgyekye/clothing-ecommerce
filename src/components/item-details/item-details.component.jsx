@@ -20,23 +20,6 @@ const ItemDetails = ({item, addToCartWithQuantity, alertToggle,modal,setModal}) 
         return setCount(count - 1)
     }
 
-    const disableButton = () => {
-        const addButton = document.getElementById('add-button');
-        console.log(addButton)
-        console.log(!!addButton)
-        if (!!addButton) {
-            if (count === 0) {
-                addButton.disabled = true
-            }
-            addButton.disabled = false
-        }
-        return null
-    }
-
-    useEffect( () => {
-        disableButton()
-    })
-
     const buttonEnabled = count > 0
     console.log(buttonEnabled)
     return (
