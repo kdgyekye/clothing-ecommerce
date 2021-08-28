@@ -71,7 +71,7 @@ const Header = (props) => {
                                         props.clearCart()
 
                                     }
-                                    }>SIGN OUT</Link></NavLink>
+                                    } to={undefined}>SIGN OUT</Link></NavLink>
                                 </NavItem>
                                 :
                                 <NavItem>

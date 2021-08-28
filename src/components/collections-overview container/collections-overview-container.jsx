@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 
 import {useQuery} from "@apollo/react-hooks";
 import {gql} from 'apollo-boost'
@@ -22,7 +22,7 @@ const GET_COLLECTIONS = gql`
 
 const CollectionsOverviewContainer = () => {
     const {loading,data,error} = useQuery(GET_COLLECTIONS)
-    console.log({error} || {data})
+    useEffect(() => console.log({error} || {data}))
 
     if (loading) return <SpinnerLoader />
     return (
