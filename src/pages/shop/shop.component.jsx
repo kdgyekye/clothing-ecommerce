@@ -13,6 +13,7 @@ import WithSpinner from "../../components/with-spinner/with-spinner.component";
 
 import CollectionsOverviewContainer
     from "../../components/collections-overview container/collections-overview-container";
+import CategoryContainer from "../../components/category-container/category-container.component";
 
 import {Alert} from "reactstrap";
 
@@ -54,7 +55,8 @@ const Shop = props => {
                     // <CollectionOverviewWithSpinner isLoading={fetching} {...props}/>
                     <CollectionsOverviewContainer/>)} />
                 <Route exact path={`${props.match.path}/:categoryId`}  render={(props) => (
-                    <CategoryPageWithSpinner isLoading={!collectionsLoaded} {...props}/>)} />
+                    <CategoryContainer match={props.match}/>)} />
+                    {/*<CategoryPageWithSpinner isLoading={!collectionsLoaded} {...props}/>)} />*/}
             </div>
         )
 }
