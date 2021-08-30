@@ -28,7 +28,7 @@ const CollectionOverview = props => {
 }
 
 const mapStateToProps = state => ({
-    collectionItems: selectCollectionsForPreview(state)
+    reduxCollectionItems: selectCollectionsForPreview(state)
 })
 
 export default connect(mapStateToProps)(CollectionOverview)

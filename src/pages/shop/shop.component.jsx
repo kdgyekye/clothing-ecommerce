@@ -55,7 +55,7 @@ const Shop = props => {
                     // <CollectionOverviewWithSpinner isLoading={fetching} {...props}/>
                     <CollectionsOverviewContainer/>)} />
                 <Route exact path={`${props.match.path}/:categoryId`}  render={(props) => (
-                    <CategoryContainer match={props.match}/>)} />
+                    <CategoryContainer {...props}/>)} />
                     {/*<CategoryPageWithSpinner isLoading={!collectionsLoaded} {...props}/>)} />*/}
             </div>
         )

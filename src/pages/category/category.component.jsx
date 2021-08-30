@@ -6,10 +6,12 @@ import {selectCategories} from "../../store/selectors/collection.selector";
 
 import CollectionItem from "../../components/collection-item/collection-item.component";
 
-const CategoryPage = ({category}) => {
+const CategoryPage = ({category, ...otherProps}) => {
 
+    console.log(`Category: ${category}`)
+    console.log(`Props: ${{otherProps}}`)
     useEffect(() => {
-        document.title = `${category.title} - Unicorn Clothing`
+        document.title = `${category?.title} - Unicorn Clothing`
     })
     return(
         <div className='category-page'>
@@ -27,7 +29,7 @@ const CategoryPage = ({category}) => {
 
 const mapStateToProps = (state,ownProps) => (
     {
-        category: selectCategories(ownProps.match.params.categoryId)(state)
+        reduxCategory: selectCategories(ownProps.match.params.categoryId)(state)
     }
 )
 export default connect(mapStateToProps)(CategoryPage)
