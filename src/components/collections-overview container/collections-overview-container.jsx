@@ -1,7 +1,6 @@
 import React, {useEffect} from 'react'
 
-import {useQuery} from "@apollo/react-hooks";
-import {gql} from 'apollo-boost'
+import {useQuery, gql} from '@apollo/client'
 import CollectionOverview from "../collection-overview/collection-overview.component";
 import SpinnerLoader from "../loaders/spinner-loader.component";
 
