@@ -33,25 +33,34 @@
     justify-content: flex-end;
   }
 
-  .active {
-    background-color: rebeccapurple;
-    border-radius: 5px;
-
-    a {
-      color: white;
-    }
+  .navigation {
     &:hover {
-      background-color: white;
-      border: 1px solid rebeccapurple;
+      border-bottom: 1.5px solid rebeccapurple !important;
+      a{
+        color: #484747 !important;
+      }
+    }
+
+    &.active {
+      background-color: rebeccapurple;
+      border-radius: 5px;
 
       a {
-        color: black;
+        color: white;
+      }
+      &:hover {
+        background-color: white;
+        border: 1px solid rebeccapurple;
+
+        a {
+          color: black;
+        }
+
       }
 
-    }
-
-    @media screen and (max-width: 700px){
-      padding-left: 10px;
+      @media screen and (max-width: 700px){
+        padding-left: 10px;
+      }
     }
   }
 

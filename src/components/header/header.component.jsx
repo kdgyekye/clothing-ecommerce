@@ -56,10 +56,10 @@ const Header = (props) => {
                             <CartIcon className=''/>
                         </div>
                         <NavItem>
-                            <NavLink onClick={toggle} className={`${isShopRoute?'active' : ''}`}><Link to='/shop'>SHOP</Link></NavLink>
+                            <NavLink onClick={toggle} className={`navigation ${isShopRoute?'active' : ''}`}><Link to='/shop'>SHOP</Link></NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink onClick={toggle} className={`${'/contact' === useLocation().pathname?'active' : ''}`}><Link to='/contact'>CONTACT</Link></NavLink>
+                            <NavLink onClick={toggle} className={`navigation ${'/contact' === useLocation().pathname?'active' : ''}`}><Link to='/contact'>CONTACT</Link></NavLink>
                         </NavItem>
                         {
                             props.currentUser ?
@@ -75,7 +75,7 @@ const Header = (props) => {
                                 </NavItem>
                                 :
                                 <NavItem>
-                                    <NavLink onClick={toggle}><Link to='/signin'>SIGN IN</Link></NavLink>
+                                    <NavLink onClick={toggle} className='navigation'><Link to='/signin'>SIGN IN</Link></NavLink>
                                 </NavItem>
                         }
                     </Nav>
