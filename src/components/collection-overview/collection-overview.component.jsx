@@ -17,7 +17,7 @@ const CollectionOverview = props => {
     return(
         <div>
             {
-                collectionItems.map(({id, ...collection}) => {
+                collectionItems?.map(({id, ...collection}) => {
                     return(
                         <CollectionPreview key={id} {...collection} />
                     )
@@ -28,7 +28,7 @@ const CollectionOverview = props => {
 }
 
 const mapStateToProps = state => ({
-    reduxCollectionItems: selectCollectionsForPreview(state)
+    collectionItems: selectCollectionsForPreview(state)
 })
 
 export default connect(mapStateToProps)(CollectionOverview)

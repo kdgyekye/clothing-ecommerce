@@ -29,7 +29,7 @@ const CategoryPage = ({category, ...otherProps}) => {
 
 const mapStateToProps = (state,ownProps) => (
     {
-        reduxCategory: selectCategories(ownProps.match.params.categoryId)(state)
+        category: selectCategories(ownProps.match.params.categoryId)(state)
     }
 )
 export default connect(mapStateToProps)(CategoryPage)

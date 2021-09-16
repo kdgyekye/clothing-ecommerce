@@ -1,11 +1,25 @@
-.directory-menu {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+.directory {
+  position: absolute;
+  margin-top: 75vh;
 
-  @media screen and (max-width: 800px){
-    margin: 0 10px;
+  .directory-title {
+    text-align: center;
+    padding-top: 20px;
   }
-}
 
+  .directory-menu {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0 40px;
+
+    @media screen and (max-width: 800px){
+      margin: 0 10px;
+    }
+
+  }
+
+
+}

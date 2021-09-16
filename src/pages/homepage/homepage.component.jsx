@@ -13,7 +13,7 @@ const Homepage = () => {
     return(
         <div className='homepage'>
             <LandingSlideshow />
-            <Directory />
+            <Directory/>
         </div>
     )
 }

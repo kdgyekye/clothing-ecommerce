@@ -11,16 +11,26 @@ import MenuItem from "../menu-item/menu-item.component";
 
 const Directory = (props) => {
     return(
-        <div className='directory-menu'>
-                {
-                    props.sections.map(({...sectionProps},index) => {
-                        return(
-                                <MenuItem key={index}
-                                          {...sectionProps}
-                                />
-                        )
-                    })
-                }
+        <div className='container directory'>
+           <div className='card'>
+               <div className='card-body'>
+                   <div className='card-title directory-title'>
+                       <h3>CATEGORIES</h3>
+                   </div>
+                   <hr />
+                   <div className='directory-menu'>
+                       {
+                           props.sections.map(({...sectionProps},index) => {
+                               return(
+                                   <MenuItem key={index}
+                                             {...sectionProps}
+                                   />
+                               )
+                           })
+                       }
+                   </div>
+               </div>
+           </div>
         </div>
     )
 }

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useState, Fragment} from "react";
 
 import './header.styles.scss'
 import {main} from "../../assets/main";
@@ -43,7 +43,7 @@ const Header = (props) => {
     },[])
 
     return (
-        <div>
+        <Fragment>
             <Navbar id='header' expand='md' light className='fixed-top'>
                 <NavbarBrand className={`brand-container`}>
                     <Link to={'/'}><h4>Unicorn Clothing</h4></Link>
@@ -88,7 +88,7 @@ const Header = (props) => {
                     :
                     <CartDropdown/>
             }
-        </div>
+        </Fragment>
     )
 }
 

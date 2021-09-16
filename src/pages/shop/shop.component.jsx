@@ -11,9 +11,9 @@ import {selectCollectionsFetching, selectCollectionsLoaded, selectItemAddedAlert
 
 import WithSpinner from "../../components/with-spinner/with-spinner.component";
 
-import CollectionsOverviewContainer
-    from "../../components/collections-overview container/collections-overview-container";
-import CategoryContainer from "../../components/category-container/category-container.component";
+// import CollectionsOverviewContainer
+//     from "../../components/collections-overview container/collections-overview-container";
+// import CategoryContainer from "../../components/category-container/category-container.component";
 
 import {Alert} from "reactstrap";
 
@@ -63,7 +63,7 @@ const Shop = props => {
 }
 
 const mapStateToProps =  state => ({
-    //fetching: selectCollectionsFetching(state),
+    fetching: selectCollectionsFetching(state),
     collectionsLoaded: selectCollectionsLoaded(state),
     alertState: selectItemAddedAlert(state)
 })
