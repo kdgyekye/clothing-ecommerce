@@ -1,6 +1,5 @@
 .directory {
-  position: absolute;
-  margin-top: 75vh;
+  margin-top: 3rem;
   margin-bottom: 20px;
 
   .directory-title {
@@ -17,8 +16,8 @@
     padding: 0 40px;
 
     @media screen and (max-width: 800px){
-      margin: 0 10px;
-      padding: 0 5px;
+      margin: 0 auto;
+      padding: 0;
     }
 
   }
