@@ -4,6 +4,7 @@ import './homepage.style.scss'
 
 //component imports
 import Directory from "../../components/directory/directory.component";
+import LandingSlideshow from "../../components/landing-slideshow/landing-slideshow.component";
 
 const Homepage = () => {
     useEffect(() => {
@@ -11,6 +12,7 @@ const Homepage = () => {
     })
     return(
         <div className='homepage'>
+            <LandingSlideshow />
             <Directory />
         </div>
     )

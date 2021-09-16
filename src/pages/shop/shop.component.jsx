@@ -52,11 +52,12 @@ const Shop = props => {
                     >Item has been added to cart</Alert>
                 </div>
                 <Route exact path={`${props.match.path}`} render={(props) => (
-                    // <CollectionOverviewWithSpinner isLoading={fetching} {...props}/>
-                    <CollectionsOverviewContainer/>)} />
+                    <CollectionOverviewWithSpinner isLoading={fetching} {...props} />
+                    // <CollectionsOverviewContainer/>)}
+                    )}/>
                 <Route exact path={`${props.match.path}/:categoryId`}  render={(props) => (
-                    <CategoryContainer {...props}/>)} />
-                    {/*<CategoryPageWithSpinner isLoading={!collectionsLoaded} {...props}/>)} />*/}
+                    // <CategoryContainer {...props}/>)} />
+                    <CategoryPageWithSpinner isLoading={!collectionsLoaded} {...props}/>)} />
             </div>
         )
 }
