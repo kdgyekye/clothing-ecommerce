@@ -3,9 +3,43 @@
   position: relative;
   color: #fff;
 
+  @media screen and (max-width: 768px){
+    height: 40vh;
+  }
+
   .hero-content {
     text-align: center;
     position: absolute;
+    top: 10%;
+
+
+    .hero-title {
+      color: whitesmoke;
+      font-weight: 600;
+      font-size: 2.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .hero-title {
+        font-size: 4.5rem;
+      }
+    }
+
+    .hero-subtitle {
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    @media (min-width: 768px) {
+      .hero-subtitle {
+        font-size: 2.5rem;
+      }
+    }
+
+    .text-slider-items {
+      display: none;
+    }
+
   }
 
   .overlay-itro {
@@ -19,31 +53,28 @@
     opacity: .9;
   }
 
-  .hero-title {
-    color: #fff;
-    font-weight: 600;
-    font-size: 3rem;
-  }
+  .shop-now {
+    background-color: rebeccapurple;
+    color: white;
 
-  @media (min-width: 768px) {
-    .hero-title {
-      font-size: 4.5rem;
+    &:hover {
+      background-color: #441a6d;
+      color: white;
+      transform: scale(1.1);
     }
   }
+}
 
-  .hero-subtitle {
-    font-size: 1.5rem;
-    font-weight: 600;
-  }
+.bg-image {
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center center;
+}
 
-  @media (min-width: 768px) {
-    .hero-subtitle {
-      font-size: 2.5rem;
-    }
-  }
-
-  .text-slider-items {
-    display: none;
+@media (max-width: 1024px) {
+  .bg-image {
+    background-attachment: scroll;
   }
 }
 
@@ -57,3 +88,4 @@
   display: table-cell;
   vertical-align: middle;
 }
+
