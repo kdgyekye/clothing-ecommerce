@@ -2,6 +2,7 @@ import React, {useState} from "react";
 
 import CustomButton from "../custom-button/custom-button.component";
 import ItemDetails from "../item-details/item-details.component";
+import "bootstrap-icons/font/bootstrap-icons.css"
 
 //redux imports
 import {connect} from "react-redux";
@@ -20,27 +21,38 @@ const CollectionItem = ({item,addToCart, alertToggle}) => {
 
     return (
         <div>
-            <div className='collection-item card shadow-sm'>
-                <div
-                    className='image'
-                    style={{backgroundImage: `url(${imageUrl})`}}
-                    data-toggle="modal" data- target="#itemDetailsModal" onClick={toggle}
-                />
-                <div className='product-actions'>
-                    <CustomButton  data-toggle="modal" data- target="#itemDetailsModal" onClick={toggle} inverted>View Item</CustomButton>
-                </div>
-                <div className='collection-footer rounded-bottom' >
-                    <div className='name-price'>
-                        <div className='name'>{name}</div>
-                        <div className='price'>{`$${price}`}</div>
+            <div className='card collection-item shadow-sm'>
+                    <div
+                        className='image'
+                        style={{backgroundImage: `url(${imageUrl})`}}
+                        data-toggle="modal" data-target="#itemDetailsModal" onClick={toggle}
+                    />
+                    <div className='product-actions'>
+                        <CustomButton  data-toggle="modal" data- target="#itemDetailsModal" onClick={toggle} inverted>View Item
+                            <i className='bi bi-eye text-primary' style={{marginLeft: '10px'}}/>
+                        </CustomButton>
                     </div>
-                    <div className='view'>
-                        <button className='cart-add btn-primary' onClick={() => {
-                            addToCart(item)
-                            alertToggle(true)
-                        }}><i className='fas fa-shopping-cart'/></button>
+                    <div className='collection-footer' >
+                        <div style={{color: '#e8bb08'}}>
+                            <i className='fa fa-star' aria-hidden='true' />
+                            <i className='fa fa-star' aria-hidden='true' />
+                            <i className='fa fa-star' aria-hidden='true' />
+                            <i className='fa fa-star' aria-hidden='true' />
+                            <i className='fa fa-star-half' aria-hidden='true' />
+                        </div>
+                        <div className='details'>
+                            <div className='name-price'>
+                                <div className='name'>{name}</div>
+                                <div className='price'>{`$${price}`}</div>
+                            </div>
+                            <div className='view'>
+                                <button className='cart-add btn-primary' onClick={() => {
+                                    addToCart(item)
+                                    alertToggle(true)
+                                }}><i className='fas fa-shopping-cart'/></button>
+                            </div>
+                        </div>
                     </div>
-                </div>
             </div>
             <ItemDetails item={item} modal={modal} setModal={setModal}/>
         </div>

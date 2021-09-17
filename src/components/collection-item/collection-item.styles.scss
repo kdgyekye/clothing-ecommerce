@@ -1,9 +1,6 @@
 .collection-item {
   width: 22vw;
-  display: flex;
-  flex-direction: column;
   height: 350px;
-  align-items: center;
   position: relative;
   background-color: white;
 
@@ -24,9 +21,13 @@
 
   .product-actions {
     width: 80%;
-    display: none;
+    //display: none;
     position: absolute;
     top: 180px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
 
     .custom-button {
       width: 100%;
@@ -71,42 +72,47 @@
     transition: transform 1s ;
   }
   .collection-footer {
-    width: 100%;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    align-content: flex-end;
-    margin-bottom: 10px;
-    font-size: 18px;
-    background-color: white;
+    flex-direction: column;
+    justify-content: space-evenly;
     padding: 0 12px;
+    height: 30%;
 
-    .name-price {
+    .details {
+      width: 100%;
       display: flex;
-      flex-direction: column;
-      width: 80%;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 18px;
+      background-color: white;
 
-      .name {
+      .name-price {
+        display: flex;
+        flex-direction: column;
+        width: 80%;
 
+        .name {
+
+        }
+
+        .price {
+          justify-content: flex-end;
+          color: #550889;
+        }
       }
 
-      .price {
-        justify-content: flex-end;
-        color: #550889;
-      }
-    }
+      .view {
+        width: 20%;
 
-    .view {
-      width: 20%;
+        .cart-add {
+          border: none;
+          border-radius: 15px;
+          min-width: 100%;
 
-      .cart-add {
-        border: none;
-        border-radius: 15px;
-        min-width: 100%;
-
-        &:hover {
-          transform: scale(1.05);
-          background-color: #b34bf8;
+          &:hover {
+            transform: scale(1.05);
+            background-color: #b34bf8;
+          }
         }
       }
     }
