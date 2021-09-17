@@ -20,7 +20,7 @@ const CollectionPreview  = ({title, items}) => {
                     <i className="bi bi-arrow-right-circle-fill m-2"/>
                 </Link>
             </div>
-            <Tooltip placement="top" isOpen={tooltipOpen} target="TooltipExample" toggle={toggle}>
+            <Tooltip placement="right" isOpen={tooltipOpen} target="TooltipExample" toggle={toggle}>
                 View More Items
             </Tooltip>
             <div className='preview'>
