@@ -2,7 +2,6 @@ import React, {useState} from "react";
 
 import CustomButton from "../custom-button/custom-button.component";
 import ItemDetails from "../item-details/item-details.component";
-import "bootstrap-icons/font/bootstrap-icons.css"
 
 //redux imports
 import {connect} from "react-redux";

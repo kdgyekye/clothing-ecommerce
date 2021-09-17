@@ -15,7 +15,8 @@ const CollectionOverview = props => {
         document.title = `Shop - Unicorn Clothing`
     })
     return(
-        <div>
+        <div className='d-flex flex-column'>
+            <h1 className='mx-auto mb-4'>SHOP</h1>
             {
                 collectionItems?.map(({id, ...collection}) => {
                     return(

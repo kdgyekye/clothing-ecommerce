@@ -3,9 +3,17 @@
   flex-direction: column;
   margin-bottom: 30px;
 
+  .go {
+    font-size: 1.6rem;
+    color: rebeccapurple;
+
+    &:hover {
+      transform: scale(1.07);
+    }
+  }
+
   .title {
     font-size: 28px;
-    margin-bottom: 25px;
   }
 
   .preview {
