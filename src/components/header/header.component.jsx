@@ -13,6 +13,7 @@ import {connect} from "react-redux";
 import {selectCartToggle} from "../../store/selectors/cart.selector";
 import {selectCurrentUser} from "../../store/selectors/user.selector";
 import {clearAllFromCart} from "../../store/actions/cart-actions";
+import {toggleCart} from "../../store/actions/cart-actions";
 
 //reactstrap nav
 import {
@@ -44,17 +45,19 @@ const Header = (props) => {
 
     return (
         <Fragment>
-            <Navbar id='header' expand='md' light className='fixed-top'>
-                <NavbarBrand className={`brand-container`}>
-                    <Link to={'/'}><h4>Unicorn Clothing</h4></Link>
-                    <span><img src='favicon.ico' alt='logo' className='logo'/></span>
-                </NavbarBrand>
+            <Navbar id='header' expand='md' light className='fixed-top align-items-baseline pt-2'>
+                <div style={{width: '84%'}} className='d-flex flex-row justify-content-between'>
+                    <NavbarBrand className={`brand-container`}>
+                        <Link to={'/'}><h4>Unicorn Clothing</h4></Link>
+                        <span><img src='favicon.ico' alt='logo' className='logo'/></span>
+                    </NavbarBrand>
+                    <div onClick={toggleCart}>
+                        <CartIcon className=''/>
+                    </div>
+                </div>
                 <NavbarToggler onClick={toggle} />
                 <Collapse isOpen={isOpen} navbar className='nav-links'>
                     <Nav className='mr-auto' navbar>
-                        <div onClick={toggle}>
-                            <CartIcon className=''/>
-                        </div>
                         <NavItem>
                             <NavLink onClick={toggle} className={`navigation ${isShopRoute?'active' : ''}`}><Link to='/shop'>SHOP</Link></NavLink>
                         </NavItem>
@@ -101,7 +104,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        clearCart: () => dispatch(clearAllFromCart())
+        clearCart: () => dispatch(clearAllFromCart()),
+        toggleCart: () => dispatch(toggleCart())
     }
 }
 
