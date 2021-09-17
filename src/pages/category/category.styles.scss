@@ -1,6 +1,7 @@
 .category-page {
   display: flex;
   flex-direction: column;
+  margin-top: -20px;
 
   .title {
     font-size: 38px;
@@ -26,8 +27,8 @@
       margin-bottom: 30px;
 
       @media screen and(max-width: 700px){
-        width: 85vw;
-        height: 400px;
+        width: 80vw;
+        height: 420px;
         margin: 0 auto;
       }
 
