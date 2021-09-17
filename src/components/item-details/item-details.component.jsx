@@ -56,8 +56,8 @@ const ItemDetails = ({item, addToCartWithQuantity, alertToggle,modal,setModal}) 
                         </div>
                     </div>
                     <div className='product-card-footer'>
-                        <button className='btns buy'>Buy Now</button>
-                        <button className='btns add' id='add-button' disabled={!buttonEnabled} onClick={() =>
+                        <button className='btn buy'>Buy Now</button>
+                        <button className='btn add' id='add-button' disabled={!buttonEnabled} onClick={() =>
                         {addToCartWithQuantity({...item, quantity: count})
                             alertToggle(true)
                             }}>Add To Cart
