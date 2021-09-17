@@ -1,4 +1,5 @@
 import React , {Fragment} from "react";
+import {Link} from 'react-router-dom'
 
 import Typed from "typed.js";
 
@@ -48,7 +49,7 @@ const LandingSlideshow = (props) => {
                         <div className="table-cell">
                             <div className="container">
                                 <h1 className="hero-title mb-4"><span ref={el} /></h1>
-                                <button className='btn btn-lg shop-now'>SHOP NOW</button>
+                                <Link to='/shop'><button className='btn btn-lg shop-now'>SHOP NOW</button></Link>
                             </div>
                         </div>
                     </div>
